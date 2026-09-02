@@ -1,0 +1,23 @@
+q01.c: In function ‘main’:
+q01.c:7:5: error: invalid suffix ‘ndscore’ on integer constant
+    7 | int 2ndscore;
+      |     ^~~~~~~~
+q01.c:7:5: error: expected identifier or ‘(’ before numeric constant
+q01.c:8:1: warning: useless type name in empty declaration
+    8 | int long;
+      | ^~~
+q01.c:10:11: warning: unused variable ‘score’ [-Wunused-variable]
+   10 | int Score,score;
+      |           ^~~~~
+q01.c:10:5: warning: unused variable ‘Score’ [-Wunused-variable]
+   10 | int Score,score;
+      |     ^~~~~
+q01.c:9:5: warning: unused variable ‘_tmp’ [-Wunused-variable]
+    9 | int _tmp;
+      |     ^~~~
+q01.c:6:5: warning: unused variable ‘total_count’ [-Wunused-variable]
+    6 | int total_count;
+      |     ^~~~~~~~~~~
+q01.c:5:5: warning: unused variable ‘money$owed’ [-Wunused-variable]
+    5 | int money$owed;
+      |     ^~~~~~~~~~
