@@ -1,0 +1,21 @@
+Q07)
+
+Predicted Output:
+5.00
+4.00
+
+Output:
+5.00
+4.00
+
+Reason:
+According to BODMAS rule, (y-4) is first calculated, ie, 2.0. Then 3*x is done, ie, 3x2.0 = 6.0. 
+Then is 6.0 is divided by 2.0, ie, 3.0. Then 2.0 is added, that makes 5.00.
+
+Putting parantheses, (x+3*x) is done, ie, 8.0 is then divided by 2.0, that gives 4.00.
+
+
+Q08)
+
+Predicted Output:
+
