@@ -1,0 +1,1 @@
+gcc -g -O0 -Wall q10.c -o q10.o 2>&1 | tee output_d.log
