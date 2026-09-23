@@ -1,0 +1,4 @@
+q18.c: In function ‘main’:
+q18.c:7:17: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+    7 |         z = (y=5, y+2,y*3);
+      |                 ^
