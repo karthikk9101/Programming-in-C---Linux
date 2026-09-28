@@ -1,0 +1,199 @@
+Q01)
+	
+Predicted answer:
+int money&owed		-valid
+int total_count		-valid
+int 2ndscore		-invalid (cannot start with a number)
+int long;		-invalid (cannot use a keyword)
+int _tmp		-valid 
+int Score, score	-valid 
+
+Output:
+q01.c: In function ‘main’:
+q01.c:6:5: error: invalid suffix "ndscore" on integer constant
+    6 | int 2ndscore;
+      |     ^~~~~~~~
+q01.c:6:5: error: expected identifier or ‘(’ before numeric constant
+q01.c:7:1: warning: useless type name in empty declaration
+    7 | int long;
+      | ^~~
+q01.c:9:12: warning: unused variable ‘score’ [-Wunused-variable]
+    9 | int Score, score;
+      |            ^~~~~
+q01.c:9:5: warning: unused variable ‘Score’ [-Wunused-variable]
+    9 | int Score, score;
+      |     ^~~~~
+q01.c:8:5: warning: unused variable ‘_tmp’ [-Wunused-variable]
+    8 | int _tmp;
+      |     ^~~~
+q01.c:5:5: warning: unused variable ‘total_count’ [-Wunused-variable]
+    5 | int total_count;
+      |     ^~~~~~~~~~~
+q01.c:4:5: warning: unused variable ‘money$owed’ [-Wunused-variable]
+    4 | int money$owed;
+      |     ^~~~~~~~~~
+
+Reason:	
+2ndscore and long cannot be used as one stars with a number and long is a keyword. Others are all valid.
+
+..................................................................................
+
+Q02)
+
+Predicted answer:	
+017 12 1
+
+Output:
+15 12 1
+
+Reason:
+017 is in octal format as it has 0 in front. So when 017 in octal format is converted to decimal is comes as 15.
+
+..................................................................................
+
+Q03)
+
+Predicted answer:
+-1 ... ...
+
+Output:
+-1 255 255
+
+Reason:
+for ("%d",c), it prints -1 as it is as %d is used. 
+for ("%d",uc), unsigned char cannot take negative values, so -1 loops around to 255, thus giving 255.
+for ("%u",uc), unsigned char does not take negative values, thus gives 255.
+
+..................................................................................
+
+Q04)
+
+Predicted answer:
+4
+-2
+
+Output:
+4
+-2
+
+Reason:
+enum works in such a way that the number of variables there are, enum assigns values from 0 onwards. Here in the first enum, S and L are explicitly given.
+Thus when it comes to XL, enum automatically adds one to the previous value form the previous variable. Since the previous value was 3, XL becomes 4.
+In case of XL2, since the previous value is -3, enum adds 1 to it, making XL2's value as -2. Thus the output becomes 4 and -2.
+
+..................................................................................
+
+Q05)
+
+Predicted answer:
+1
+1
+4
+8
+4
+8
+
+
+Output:
+1
+2
+4
+8
+4
+8
+
+Reason: 
+sizeof(int) is typically 4 byte, but can change with respect to other factors like compiler, os, hardware, etc.
+sizeof(long) is 4 bytes.
+
+..................................................................................
+
+Q06)
+
+a.
+Predicted output:
+Little Endian.
+
+Output:
+Little Endian.
+
+Reason:
+
+..................................................................................
+
+Q07)
+
+Predicted Output:
+5.00
+4.00
+
+Output:
+5.00
+4.00
+
+Reason:
+According to BODMAS rule, (y-4) is first calculated, ie, 2.0. Then 3*x is done, ie, 3x2.0 = 6.0. 
+Then is 6.0 is divided by 2.0, ie, 3.0. Then 2.0 is added, that makes 5.00.
+
+Putting parantheses, (x+3*x) is done, ie, 8.0 is then divided by 2.0, that gives 4.00.
+
+..................................................................................
+
+Q08)
+
+Predicted Output:
+1
+1.50
+1
+3
+-3
+1
+
+Output:
+1
+1.50
+1
+3
+-3
+1
+
+Reason:
+3/2 gives 1.5 in general but using %d only 1 is taken into consideration.
+3.0/2 gives a float value, ie, 1.50.
+(int)(3.0/2), first gives 1.50, then is converted to interger format, so only 1 is taken.
+7%4 gives the remainder value when 4 divides 7. thus gives 3.
+same as above.
+
+
+Q09
+
+Predicted answer:
+5 6
+6 6
+
+Output:
+6 5
+6 6
+
+Reason:
+a++ is a case of post increment where value of b is assigned first and then a is incremented. So b remains 5 and a becomes 6.
+++c is a case of pre increment, where the value is incremented first, then assigned. So a and b becomes 6.
+
+
+Q10
+
+Predicted answer:
+No answer
+
+Output:
+q10.c: In function ‘main’:
+q10.c:6:19: warning: operation on ‘a’ may be undefined [-Wsequence-point]
+    6 | printf("%d %d\n",a++,a);
+      |                  ~^~
+
+
+Reason:
+C compiling does not give a guarenteed way to compile the values, because it could first evaluate a++ and then a or a and then a++. Thus gives an error.
+
+
+Q12
