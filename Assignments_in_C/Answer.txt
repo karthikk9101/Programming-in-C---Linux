@@ -1,0 +1,107 @@
+Q07)
+
+Predicted Output:
+5.00
+4.00
+
+Output:
+5.00
+4.00
+
+Reason:
+According to BODMAS rule, (y-4) is first calculated, ie, 2.0. Then 3*x is done, ie, 3x2.0 = 6.0. 
+Then is 6.0 is divided by 2.0, ie, 3.0. Then 2.0 is added, that makes 5.00.
+
+Putting parantheses, (x+3*x) is done, ie, 8.0 is then divided by 2.0, that gives 4.00.
+
+
+Q08)
+
+Predicted Output:
+
+1
+1.50
+1
+3
+-3
+1
+
+Output:
+
+1
+1.50
+1
+3
+-3
+1
+
+Reason:
+
+3/2 gives 1.5 in general but using %d only 1 is taken into consideration.
+3.0/2 gives a float value, ie, 1.50.
+(int)(3.0/2), first gives 1.50, then is converted to interger format, so only 1 is taken.
+7%4 gives the remainder value when 4 divides 7. thus gives 3.
+same as above.
+
+
+Q09)
+
+Predicted Output:
+6 5
+6 6
+
+Output:
+6 5
+6 6
+
+Reason:
+
+
+
+Q16)
+
+Predicted answer:
+AB
+CD
+D
+
+Output:
+AB
+CD
+D
+
+Reason:
+in the first case, a is given as input and inside the switch case, it goes till case 'b', since there is no break in case 'a', it prints AB
+in the second case, c is given as input and inside the switch case, it goes from case 'c' to default since there is no break in between, it prints CD.
+in the third case, z is given as input, since switch cases does not have a value of z, it goes to default. thus prints D
+
+
+Q17)
+
+Predicted answer:
+24
+24
+
+Output:
+24
+24
+
+Reason:
+in the while loop, the while loop checks if i value is less that or equal to n. inside the loop, the factorial value is calculated with j and the i is incremented with each loop.
+in the do while loop, the calculation is done first with do, then the while condition is checked, thus performing the loop again
+
+
+Q18)
+
+
+Predicted answer:
+15
+
+Output:
+15
+
+Reason:
+Comma operator evaluates from left to right. First y has value 5, then y+2 is done, then y*3 is calculated. Since this is the last expression, z gets valye 15.
+
+
+
