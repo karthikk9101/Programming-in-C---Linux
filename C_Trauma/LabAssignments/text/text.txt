@@ -1,1 +1,542 @@
-.
+..................................................................................
+q01
+
+int 2ndscore and int long will show error
+
+q01.c: In function ‘main’:
+q01.c:8:5: error: invalid suffix "ndscore" on integer constant
+    8 | int 2ndscore;
+      |     ^~~~~~~~
+q01.c:8:5: error: expected identifier or ‘(’ before numeric constant
+q01.c:9:1: warning: useless type name in empty declaration
+    9 | int long;
+      | ^~~
+q01.c:11:12: warning: unused variable ‘score’ [-Wunused-variable]
+   11 | int Score, score;
+      |            ^~~~~
+q01.c:11:5: warning: unused variable ‘Score’ [-Wunused-variable]
+   11 | int Score, score;
+      |     ^~~~~
+q01.c:10:5: warning: unused variable ‘_tmp’ [-Wunused-variable]
+   10 | int _tmp;
+      |     ^~~~
+q01.c:7:5: warning: unused variable ‘total_count’ [-Wunused-variable]
+    7 | int total_count;
+      |     ^~~~~~~~~~~
+q01.c:6:5: warning: unused variable ‘money$owed’ [-Wunused-variable]
+    6 | int money$owed;
+      |     ^~~~~~~~~~
+
+This is because a variable name cannot start with a number. That's why it showed error in int 2ndscore.
+Also in int long; , long is a keyword used in c programming which cannot be assigned as a variable name.
+..............................................................................
+q02
+
+The expected answer is 15,12,1
+
+Observed output 15 12 1
+
+This is because x=017 is a octal number, but in printf x is declared a %d ie a decimal number so conversion takes place.y=12 prints 12 itself .In x>y it checks between decimal value of 017 ie 15 with 12 , which is true. Hence 1 is returned.
+..............................................................................
+q03
+
+The expected answer is -1 1 1 
+
+Observed output -1 255 255
+
+If char is signed on your system, it can store negative values. So c = -1
+When c is passed to printf, it is promoted to int, so %d prints as -1.
+An unsigned char cannot store negative numbers.For an 8-bit unsigned char, the range is 0 to 255. When you put -1 into it, C converts the value to the corresponding unsigned value ie -1 to 255.
+...............................................................................
+q04
+
+The expected answer is XL=4 AND XL2=-2
+
+Observed output XL= 4 XL2=-2
+
+in enumerator if the value is not specified then it gets the next value.
+..............................................................................
+q05
+
+The expected answer
+a. `sizeof(int) == 4` -Typical , can change
+b. `sizeof(long) >= sizeof(int)`- Guaranteed
+c. `sizeof(char) == 1`-Guaranteed
+d. `sizeof(double) == 2 * sizeof(float)`-Typical
+e. An `unsigned int` holds roughly twice the positive range of an `int` -Guaranteed
+
+Observed output
+Size of int:4
+Size of long:8
+Size of short:2
+Size of char:1
+Size of double:8
+Size of float:4
+
+C does not fix the size of every integer and floating-point type on every machine. It only specifies certain minimum requirements and relationships.Also `unsigned int` holds roughly twice the positive range of an `int`
+................................................................................
+q06
+
+The Expected answer
+Little Endian
+
+
+Observed output
+Little endian
+0D,0C,0B,0A
+N,U,X,I
+
+168496141
+Byte = 0D
+Byte = 0C
+Byte = 0B
+Byte = 0A
+
+Chara in Memory:
+N
+U
+X
+I
+
+In a little-endian system, the least significant byte is stored at the lowest memory address.On a little-endian machine, the bytes are stored from least significant to most significant. Therefore the memory order is 0D 0C 0B 0A.
+he characters in "NUXI" are stored as separate bytes: N, U, X, I, followed by the null character \0. Endianness affects the order of bytes inside multi-byte values such as integers, but it does not reverse the characters of a normal character array.
+..............................................................................
+q07
+
+The Expected answer is 5.0
+ z = (x + 3*x)/(y-4);
+ 
+Observed answer is 
+The answer is:5.000000
+The new answer after rearranging z=(x+3*x)/(y-4) :4.000000
+
+Here first the parentheses is considered, then multiplication and addition
+For making the answer z=4 we restructure it as
+ z = (x + 3*x)/(y-4);
+
+..............................................................................
+q08
+
+The Expected answer
+3 / 2			1	int 
+3.0 / 2			1.5	float
+(int)(3.0 / 2)		1	int
+7 % 4			3	int
+-7 % 4			-3	int
+3 % 2			1	int
+
+Observed answer
+3/2 :1
+3.0/2 :1.500000
+int 3.0/2 :1
+7reminder4 :3
+-7reminder4 :-3
+3reminder2 :1
+
+In 3/2 the answer is 1.5 , but since we declare it as a int we get only real part ignoring the decimal part, in 3.0//2 we first declare it as float and then int . There we can clearly see the difference. Next is the % operation for finding the remainder.
+...............................................................................
+q09
+
+The expected answer
+6 5
+6 6
+
+Observed answer
+6 5
+6 6
+
+b = a++ is post-increment:first assigns  value 5 to b, then increments a to 6
+d = ++c is pre-increment:first increments c to 6, then assigns 6 to d
+...............................................................................
+q10
+
+The expected answer
+5 6
+
+Observed answer
+q10.c: In function ‘main’:
+q10.c:6:20: warning: operation on ‘a’ may be undefined [-Wsequence-point]
+    6 | printf("%d %d\n", a++, a);
+      |                   ~^~
+Output 5 6
+
+The problem is that a is modified by a++ and also read by a within the same printf argument list, without a required sequencing relationship between them.
+................................................................................
+q11
+
+The expected answer
+0  1
+
+Observed answer
+q11.c: In function ‘a’:
+q11.c:15:12: warning: variable ‘r’ set but not used [-Wunused-but-set-variable]
+   15 | int i = 1, r;
+      |            ^
+q11.c: In function ‘b’:
+q11.c:21:12: warning: variable ‘r’ set but not used [-Wunused-but-set-variable]
+   21 | int i = 1, r;
+
+Output       ^
+0
+1
+
+For the first expression, (0) is false. Because && uses short-circuit evaluation, the second part is not evaluated. Therefore i remains 1 and r becomes 0. For the second expression, 3 == 3 is true. Since || stops when its left side is true, the second expression is not evaluated. Therefore i again remains 1 and r becomes 1.
+................................................................................
+q12
+
+The expected answer
+0x77 & 0x3		-0x3
+0x700 | 0x33		-0x733
+0x770 ^ 0x773		-0x3
+0x01 << 4		-0x10
+0x010 >> 4		-0x1
+
+Observed answer
+0x77 & 0x3 = 3
+0x700 | 0x33 = 733
+0x770 ^ 0x773 = 3
+0x01 << 4 = 10
+0x010 >> 4 = 1
+
+First we have to convert the hexadecimal value to binary . Then we have to do the following expression ie AND , OR, XOR, Left shift, Right shift and convert them back to Hexadecimal.
+.............................................................................
+q13
+The expected answer
+input:p = 8, q = 3
+output:p = 8, q = 3
+
+Observed answer
+p = 8, q = 3
+
+This is done using pointer and XOR. If we Xor 8 and 3 we get 11 and store it in q.After that we Xor 11 and 3 to get 8 and store it in p. After we again xor it,to get 3 again.
+Failure case
+p = p ^ p
+  = 0
+and it eventually becomes zero.
+So XOR swap fails when both pointers refer to the same object.
+...............................................................................
+q14
+The expected answer
+1 
+
+Observed answer
+Checking using If: 1
+Checking using Ternary: 1
+
+The ternary operator has the form:
+condition ? value_if_true : value_if_false
+So if x % 2 == 1 is true, isodd gets 1; otherwise it gets 0. It is simply a shorter way of writing the given if-else.
+.............................................................................
+q15
+The expected answer
+two 
+two
+no output
+
+two
+two
+one
+
+Observed answer
+two
+two
+
+two
+two
+one
+
+In case one only 4 and 8 satisfy the if comdition thats why it gives the output and no output for 6.In second case the else is outside the if.
+..............................................................................
+q16
+The expected answer
+ch=a  prints A and B
+ch=c  prints C and D
+ch=z  prints D
+
+Observed answer
+AB
+CD
+D
+
+Since there is no break statement the case statement executes till the break command.
+..............................................................................
+q17
+The expected answer
+5	120
+
+Observed answer
+Enter a number:5
+Factorial using for: 120
+Factorial using while: 120
+
+Exception Case
+Enter a number:0
+Factorial using for: 1
+Factorial using while: 1
+
+A for loop and a while loop test their condition before executing the body. Therefore, if the condition is initially false, they execute zero times. A do-while executes the body first and checks the condition afterwards, so it always executes at least once.
+...............................................................................
+q18
+The expected answer
+5
+15
+
+Observed answer
+q18.c: In function ‘main’:
+q18.c:8:15: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+    8 | int z = (y = 5, y + 2, y * 3);
+      |               ^
+
+y= 5
+z= 15
+Factorial of 3 is =6
+
+Here in z = (y = 5, y + 2, y * 3) y+2 is not considered. First the value of y was 0 the it was updated to 5 in z.
+.................................................................................
+q19
+The expected answer
+6
+
+Observed answer
+Enter the Values:
+12
+18
+The GCD is:6
+
+If continue is removed, the program may update ret when i divides only b. For example, 9 divides 18 but not 12, so ret can incorrectly become 9.
+..............................................................................
+q20
+The expected answer
+Version1 : 20 lines
+Version2 : 25 lines
+
+Observed answer
+Version 1:
+  1: 0
+  2: 1
+  3: 1
+  4: 2
+  5: 3
+  6: 5
+  7: 8
+  8: 13
+  9: 21
+ 10: 34
+ 11: 55
+ 12: 89
+ 13: 144
+ 14: 233
+ 15: 377
+ 16: 610
+ 17: 987
+ 18: 1597
+ 19: 2584
+ 20: 4181
+Version 2:
+  1: 0
+  2: 1
+  3: 1
+  4: 2
+  5: 3
+  6: 5
+  7: 8
+  8: 13
+  9: 21
+ 10: 34
+ 11: 55
+ 12: 89
+ 13: 144
+ 14: 233
+ 15: 377
+ 16: 610
+ 17: 987
+ 18: 1597
+ 19: 2584
+ 20: 4181
+ 21: 6765
+ 22: 10946
+ 23: 17711
+ 24: 28657
+ 25: 46368
+
+The 1st version has 20 lines and the 2nd version has 25 lines. This is because the local nmax shadows the global nmax.
+................................................................................
+q21
+The expected answer
+With Static:1 2 3 4 
+Without Static:1 1 1 1 
+
+Observed answer
+With Static:1 2 3 4 
+Without Static:1 1 1 1 
+
+static makes n retain its value between function calls. Therefore, each call increases the previous value.If static is removed, n is recreated and initialized to 0 every time counter() is called.
+................................................................................
+q22
+The expected answer
+1 2 3
+error for extern int n
+
+Observed answer
+q22.c: In function ‘main’:
+q22.c:15:16: warning: unused variable ‘h’ [-Wunused-variable]
+   15 |     extern int h;
+      |                ^
+/usr/bin/ld: /tmp/cckvjIPh.o: in function `main':
+/home/mtech19/assignment-1/q22.c:11: multiple definition of `main'; /tmp/ccU3tXAM.o:/home/mtech19/assignment-1/q21.c:22: first defined here
+collect2: error: ld returned 1 exit status
+
+1. static inside a function
+When static is used with a local variable, the variable keeps its value between function calls
+
+2. static at file scope
+When static is used for a global variable outside a function.the variable is limited to that source file. This is called internal linkage.But here q22.c cannot access h, because the static declaration makes it private to q21.c
+................................................................................
+q23
+The expected answer
+shows error
+
+Observed answer
+q23.c: In function ‘main’:
+q23.c:6:1: error: address of register variable ‘x’ requested
+    6 | int *p = &x;
+      | ^~~
+q23.c:6:6: warning: unused variable ‘p’ [-Wunused-variable]
+    6 | int *p = &x;
+      |      ^
+
+The code is illegal because x is declared with register. A register variable is treated as a variable that may be stored in a CPU register, so C does not allow its address to be taken using &.
+
+Two restrictions on register variables are:
+*A register variable cannot have its address taken using the & operator.
+*A register variable must have automatic storage duration. Therefore, it can be a local variable or function parameter, but not a file-scope variable.
+................................................................................
+q24
+The expected answer
+gcd = 6
+x = 1
+y = -2
+
+Observed answer
+gcd = 6
+x = 1
+y = -2
+30(1) + 12(-2) = 6
+
+A C-function can directly return only one value. To return gcd, x, and y, we can use global/shared variables.The function ext_euclid() calculates all three values and stores them in shared variables. Then the calling function can access those variables.
+The keyword extern must appear before the shared variable declarations. Extern tells the compiler that these variables are defined in another source file, rather than being created again in the header file.
+................................................................................
+q25
+The expected answer
+it will not work without linking the both .c files. After linking only we get the output.
+
+Observed answer
+gcc -g -O0 -Wall diophant.c -o diophant.o
+This command only uses diophant.c. It does not include euclid.c, where gcd() and ext_euclid() are defined. The compiler can see the function declarations from the header, but when linking, it cannot find their actual definitions.
+
+After linking the output becomes:
+GCD of 30 and 18 = 6
+Extended Euclidean Algorithm:
+gcd = 6
+x = -1, y = 2
+30(-1) + 18(2) = 6
+
+The correct comment is :
+gcc -g -O0 -Wall diophant.c euclid.c -o diophant
+
+#include <euclid.h> are normally used for system/include-path headers.
+#include "euclid.h" it is your project's local header.
+
+Since euclid.h is your own project header, the correct form is:#include "euclid.h"
+................................................................................
+q26
+The expected answer
+25
+25
+
+Observed answer
+Answer without proper macro:
+11
+100
+Answer with proper macro:
+25
+25
+
+First SQR(a+b) becomes a+b*a+b because multiplication has higher precedence than addition: 2 + 3*3 + 3 = 14
+100/SQR(2) becomes 100/2*2 = (100/2)*2 = 100. Since / and * have the same precedence and are evaluated left-to-right.
+
+With correct macro
+SQR(a+b) → (2+3)*(2+3) = 25
+100/SQR(2) → 100/(2*2) = 25
+................................................................................
+q27
+The expected answer
+m = 4
+i = 5
+j = 6
+
+Observed answer
+m = 4
+i = 5
+j = 6
+
+#define min(a,b) ((a) < (b) ? (a) : (b)) the preprocessor changes it to
+int m = ((i++) < (j++) ? (i++) : (j++));
+Initially i = 3 ,j = 5 The condition is evaluated first (i++) < (j++)
+i++ gives 3, then i becomes 4 and j++ gives 5, then j becomes 6
+So 3 < 5 is true. Since the condition is true, the ?: operator evaluates (i++)
+This gives 4, then i becomes 5.
+Therefore:
+m = 4
+i = 5
+j = 6
+................................................................................
+q28
+The expected answer
+The text hello always prints but debug mode omly prints when it in gcc.
+
+Observed answer
+With -DDEBUG=1 in gcc
+Debug mode
+Hello
+
+Without -DDEBUG=1 in gcc
+Hello
+
+The #ifndef / #define / #endif combination is an include guard. It prevents the contents of mymod.h from being processed more than once in the same translation unit.
+Compiled using gcc -g -O0 -Wall -DDEBUG=1 q28.c -o q28.o will only give the #if DEBUG ==1 else its not printed.
+#if is handled by the preprocessor before the C program is compiled and executed.
+The preprocessor operates before normal C compilation.The preprocessor doesn't execute the program and therefore cannot use its runtime value. #if operates on preprocessor constants/macros and literals.
+................................................................................
+q29
+The expected answer
+NO OF BITS=10
+REVERSAL=0x0D0C0B0A
+NOT A POWER OF 2
+
+Observed answer
+Number of set bits: 10
+Bytes reversed: 0x0D0C0B0A
+Power of two: No
+
+temp & 1 checks the rightmost bit. temp >> 1 shifts the value right until all bits are checked
+Each byte is isolated using & masks and moved to its reversed position using << and >>
+For a nonzero value, value & (value - 1) is 0 only when exactly one bit is set. For example, 8 (1000) is a power of two, while 10 (1010) is not.
+................................................................................
+q30
+The expected answer
+gcd =6
+x = -1, y = 2
+
+Observed answer
+GCD of 30 and 18 = 6
+Extended Euclidean Algorithm:
+gcd = 6
+x = -1, y = 2
+30(-1) + 18(2) = 6
+
+To run the code use:
+gcc -g -O0 -Wall diophant.c euclid.c -o diophant.o
+
+he program first uses the Euclidean algorithm to find that the GCD of 15 and 25 is 5. The extended Euclidean algorithm finds coefficients x = 2 and y = -1, because 15(2) + 25(-1) = 5. Since we need to solve 15x + 25y = 10, both coefficients are multiplied by 10/5 = 2, giving x = 4 and y = -2. Finally, 15(4) + 25(-2) = 60 - 50 = 10, so the verification is successful.
+................................................................................
