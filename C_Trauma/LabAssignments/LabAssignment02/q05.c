@@ -85,7 +85,7 @@ int main(){
     printf("Maximum value   : %d\n",max(a,n));
     printf("Minimum value   : %d\n",minimum(a,n));
     printf("Sum             : %d\n",sum(a,n));
-    printf("Average         : %d\n",avg(a,n));
+    printf("Average         : %0.2f\n",avg(a,n));
     printf("Odd count       : %d\n",oddcount(a,n));
     printf("Even count      : %d\n",evencount(a,n));
 
