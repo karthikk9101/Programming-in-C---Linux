@@ -1,0 +1,253 @@
+C PROGRAMMING LAB PRACTICE QUESTIONS
+
+GENERAL INSTRUCTIONS
+
+1. For every problem, first understand the input, processing steps, and expected output.
+2. Before writing the C program, write the program logic in the form of an algorithm or draw a flowchart.
+3. Clearly identify:
+   - Input variables
+   - Processing steps
+   - Output variables
+4. Use meaningful variable and function names.
+5. Compile and execute the program after writing the code.
+6. Test each program using at least three different input cases, including one boundary or special case wherever applicable.
+7. Avoid unnecessary use of global variables.
+8. Wherever a function is specified, the required computation must be implemented through that function.
+9. For pointer-based questions, perform the specified operation using pointers rather than array indexing wherever explicitly mentioned.
+10. Record the algorithm/flowchart, source code, sample input, and output in the lab record.
+
+----------------------------------------------------------------------
+Set I
+----------------------------------------------------------------------
+
+1. Digit Analysis Using Loops
+Write a C program to read a positive integer and determine:
+- Number of digits
+- Sum of digits
+- Product of digits
+- Largest digit
+- Smallest digit
+Do not convert the number into a string.
+
+2. Reverse and Palindrome Number
+Write a program to reverse a given integer and determine whether the original number is a palindrome.
+
+3. Armstrong Numbers in a Range
+Write a program to display all Armstrong numbers between two limits entered by the user.
+The program should work for numbers having different numbers of digits.
+
+4. Number Pattern
+Write a program to generate the following pattern for n rows:
+
+1
+2 3
+4 5 6
+7 8 9 10
+11 12 13 14 15
+
+The value of n should be entered by the user.
+
+5. Array Statistics
+Read N integers into an array and find:
+- Maximum value
+- Minimum value
+- Sum
+- Average
+- Number of even elements
+- Number of odd elements
+
+6. Second Largest Element
+Write a program to find the second largest distinct element in an integer array.
+Do not sort the array.
+
+7. Reverse an Array
+Write a C program to reverse the elements of an array without using another array.
+
+8. Search and Frequency
+Read an array of N integers and a value x. Write a program to:
+- Find whether x exists in the array
+- Display all positions at which it occurs
+- Display its total frequency
+
+9. Function-Based Calculator
+Write a menu-driven C program to perform:
+- Addition
+- Subtraction
+- Multiplication
+- Division
+- Modulus
+Implement each operation using a separate function.
+
+10. String Character Analysis
+Write a program to read a line of text and count:
+- Uppercase letters
+- Lowercase letters
+- Digits
+- Spaces
+- Vowels
+- Consonants
+- Special characters
+Do not use library functions to perform the counting.
+
+----------------------------------------------------------------------
+Set II
+----------------------------------------------------------------------
+
+11. Prime Number Function
+Write a function:
+int isPrime(int n);
+
+Using this function, read an array and display only the prime numbers present in the array.
+Also display the total number of prime elements.
+
+12. Array Rotation
+Write a program to rotate an array:
+- Left by k positions
+- Right by k positions
+The direction and value of k should be entered by the user.
+
+13. Remove Duplicate Elements
+Write a C program to remove duplicate elements from an integer array.
+Do not use another large auxiliary array for recording visited elements.
+
+14. Merge Two Sorted Arrays
+Read two arrays that are already sorted in ascending order.
+Merge them into a third sorted array.
+Do not sort the third array after merging.
+
+15. Matrix Row and Column Analysis
+Read an M x N matrix and display:
+- Sum of each row
+- Sum of each column
+- Row having maximum sum
+- Column having maximum sum
+
+16. Matrix Saddle Point
+Write a program to find a saddle point in a matrix.
+A saddle point is an element that is:
+- Minimum in its row, and
+- Maximum in its column.
+Display the element and its position if it exists.
+
+17. Recursive Digit Sum
+Write a recursive function to calculate the sum of digits of a number.
+Extend the program to repeatedly calculate the digit sum until a single digit remains.
+
+18. Function for Array Statistics
+Develop the following functions:
+int maximum(int a[], int n);
+int minimum(int a[], int n);
+float average(int a[], int n);
+
+Use these functions to analyze an array entered by the user.
+
+19. Swap Using Pointers
+Write a function:
+void swap(int *a, int *b);
+
+Use the function to arrange three numbers entered by the user in ascending order.
+Do not return values from the swapping function.
+
+20. Array Traversal Using Pointers
+Read N integers into an array.
+Using only pointer arithmetic for processing, calculate:
+- Sum
+- Maximum
+- Minimum
+- Average
+Do not use a[i] inside the processing section.
+
+----------------------------------------------------------------------
+Set III 
+----------------------------------------------------------------------
+
+21. String Reverse Without Library Functions
+Write a program to reverse a string in the same character array.
+Conditions:
+- Do not use strrev().
+- Do not use another string for storing the reversed result.
+- Use pointers for swapping characters.
+
+22. Palindrome Sentence
+Write a program to determine whether a sentence is a palindrome while ignoring:
+- Spaces
+- Uppercase/lowercase differences
+- Punctuation marks
+
+23. Word Frequency in a Sentence
+Read a sentence and a word from the user.
+Determine how many times the word occurs in the sentence.
+The comparison should be case-insensitive.
+
+24. Longest Word in a Sentence
+Write a program to determine:
+- Number of words
+- Longest word
+- Length of longest word
+- Shortest word
+- Length of shortest word
+Do not use strtok().
+
+25. Custom String Library
+Without using the corresponding functions from <string.h>, implement your own versions of:
+my_strlen()
+my_strcpy()
+my_strcmp()
+my_strcat()
+
+Create a menu-driven program to demonstrate the functions.
+
+26. Sort Strings Alphabetically
+Read N names and arrange them in alphabetical order.
+Implement string comparison and swapping using functions.
+
+27. Pointer-Based Array Sorting
+Write a function to sort an integer array in ascending order.
+
+Prototype:
+void sortArray(int *p, int n);
+
+Within the function, access array elements primarily using pointer arithmetic.
+
+28. Multiple Results Through Pointers
+Write a function:
+
+void analyse(int a[], int n,
+             int *max,
+             int *min,
+             int *sum,
+             float *avg);
+
+The function should calculate all four results in a single traversal of the array and return the results using pointers.
+
+29. Matrix Boundary and Diagonal Analysis
+Read a square matrix of order N.
+Write a program to calculate separately:
+- Main diagonal sum
+- Secondary diagonal sum
+- Boundary element sum
+- Elements above the main diagonal
+- Elements below the main diagonal
+
+For odd-sized matrices, ensure that the centre element is not incorrectly counted multiple times where applicable.
+
+30. Comprehensive Student Result Processing System
+Develop a C program for processing the marks of N students in five subjects.
+
+Store the marks in a two-dimensional array.
+
+Create functions to:
+calculateTotal()
+calculateAverage()
+findTopper()
+subjectMaximum()
+subjectAverage()
+
+The program should also determine:
+- Overall topper
+- Highest mark in each subject
+- Average mark of each subject
+- Number of students scoring 50 or more in all subjects
+- Number of students failing at least one subject
+
+Use functions appropriately and avoid unnecessary global variables.
