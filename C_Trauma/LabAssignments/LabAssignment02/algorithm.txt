@@ -1,0 +1,23 @@
+Q01]
+
+Step 01: Read an integer from the user.
+Step 02: Use a funciton to count its digits by repeatedly dividing it by 10.
+Step 03: Use a funciton to find the sum of its digits.
+Step 04: Use a funciton to find the product of its digits.
+Step 05: Use a funciton to find the largest and smallest digits.
+Step 06: Display the digit count, sum, product, largest digit, and smallest digit.
+
+Q02]
+
+Step 01: Read a positive integer from the user.
+Step 02: Extract each digit using the remainder after dividing by 10.
+Step 03: Build the reversed number by multiplying the current result by 10 and adding the extracted digit.
+Step 04: Display the reversed number.
+Step 05: Compare the original number with its reverse.
+Step 06: Display whether the number is a palindrome.
+
+Q03]
+
+Step 01: Use a function to count the digits.
+Step 02: Use a function to find the power.
+Step 03: 
