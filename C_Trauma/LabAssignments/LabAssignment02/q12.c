@@ -9,7 +9,7 @@ void reverse(int a[], int x, int y)
     {
         temp = a[x];
         a[x] = a[y];
-        a[x] = temp;
+        a[y] = temp;
 
         x++;
         y--;

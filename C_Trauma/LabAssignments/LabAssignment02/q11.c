@@ -41,6 +41,10 @@ int main()
             printf("%d ", a[i]);
             count++;
         }
+        else{
+            printf("None.");
+            break;
+        }
     }
 
     printf("\nTotal prime elements = %d\n", count);
