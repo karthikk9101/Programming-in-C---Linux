@@ -1,5 +1,90 @@
-Q01]
+..............................Q01..............................
+//CODE
 
+
+#include <stdio.h>
+
+//count digits
+int countdigits(int n){
+    int count=0;
+
+    while (n>0){
+        count=count+1;
+        n=n/10;
+    }
+
+    return count;
+}
+
+//sum of digits
+int sumofdigits(int n){
+
+    int buffer=0;
+    int a=0;
+    while (n>0){
+        a=n%10;
+        buffer=buffer+a;
+        n=n/10;
+    }
+    return buffer;
+}
+
+//product
+int product(int n){
+    int buffer=1;
+    int b=0;
+    while (n>0){
+        b=n%10;
+        buffer=buffer*b;
+        n=n/10;
+    }
+    return buffer;
+}
+
+//largest digit
+int largest(int n){
+    int buf=0;
+    int digit;
+    while (n>0){
+        digit=n%10;
+        if (digit>buf){
+            buf = digit;
+        }
+        n=n/10;
+    }
+    return buf;
+}
+
+//smallest digit
+int smallest(int n){
+    int buf=9;
+    int digit;
+    while (n>0){
+        digit=n%10;
+        if (digit<buf){
+            buf = digit;
+        }
+        n=n/10;
+    }
+    return buf;
+}
+
+//main program
+int main(){
+    int n;
+    printf("Enter digit: ");
+    scanf("%d",&n);
+
+    printf("Number of digits  : %d\n",countdigits(n));
+    printf("Sum of digits     : %d\n",sumofdigits(n));
+    printf("Product of digits : %d\n",product(n));
+    printf("Largest of digits : %d\n",largest(n));
+    printf("Smallest of digits: %d\n",smallest(n));
+    return 0;
+
+}
+
+//OUTPUTS
 Enter digit: 12345
 Number of digits  : 5
 Sum of digits     : 15
@@ -21,6 +106,7 @@ Product of digits : 15
 Largest of digits : 5
 Smallest of digits: 1
 
+//ALGORITHM
 Step 01: Read an integer from the user.
 Step 02: Use a funciton to count its digits by repeatedly dividing it by 10.
 Step 03: Use a funciton to find the sum of its digits.
@@ -28,7 +114,51 @@ Step 04: Use a funciton to find the product of its digits.
 Step 05: Use a funciton to find the largest and smallest digits.
 Step 06: Display the digit count, sum, product, largest digit, and smallest digit.
 
-Q02]
+..............................Q02..............................
+//CODE
+
+
+#include <stdio.h>
+
+int reverse(int n){
+    int a=0;
+    int digit;
+
+    while(n>0){
+        digit=n%10;
+        a=a*10+digit;
+        n=n/10;
+    }
+    return a;
+}
+
+int palindrome(int n){
+    if (n==reverse(n)){
+        return 1;}
+    else{
+        return 0;
+    }
+}
+
+int main(){
+
+    int x,rev;
+    printf("Enter a positive number: ");
+    scanf("%d",&x);
+
+    rev = reverse(x);
+    printf("Reversed number: %d\n",rev);
+
+    if (palindrome(x)){
+        printf("Positive palindrome.\n");
+    }
+    else{
+        printf("Negative palindrome.\n");
+    }
+    return 0;
+}
+
+//OUTPUTS
 
 Enter a positive number: 121
 Reversed number: 121
@@ -42,6 +172,8 @@ Enter a positive number: 1221
 Reversed number: 1221
 Positive palindrome.
 
+//ALGORITHM
+
 Step 01: Read a positive integer from the user.
 Step 02: Extract each digit using the remainder after dividing by 10.
 Step 03: Build the reversed number by multiplying the current result by 10 and adding the extracted digit.
@@ -49,7 +181,74 @@ Step 04: Display the reversed number.
 Step 05: Compare the original number with its reverse.
 Step 06: Display whether the number is a palindrome.
 
-Q03]
+..............................Q03..............................
+//CODE
+
+
+#include <stdio.h>
+
+int count(int n){
+    int buffer=0;
+
+    if (n==0){
+        return 1;
+    }
+    while (n>0){
+        buffer++;
+        n=n/10;
+    }
+    return buffer;
+}
+
+int power(int n,int exp){
+    int res=1;
+    while (exp>0){
+        res=res*n;
+        exp=exp-1;
+    }
+    return res;
+}
+
+int isarm(int n)
+{
+    int original = n;
+    int digit, sum = 0;
+    int digits = count(n);
+
+    while (n > 0)
+    {
+        digit = n % 10;
+        sum = sum + power(digit, digits);
+        n = n / 10;
+    }
+
+    return sum == original;
+}
+
+int main(){
+    
+    int l,h,i;
+
+    printf("Enter lower limits: ");
+    scanf("%d",&l);
+
+    printf("Enter upper limit: ");
+    scanf("%d",&h);
+
+    printf("Armstrong numbers: \n");
+
+    for (i = l; i <= h; i++)
+    {
+        if (isarm(i))
+            printf("%d ", i);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter lower limits: 1
 Enter upper limit: 100
@@ -66,6 +265,8 @@ Enter upper limit: 160
 Armstrong numbers:
 153
 
+//ALGORITHM
+
 Step 01: Define a function to count the digits in a number; return 1 when the number is 0, otherwise repeatedly divide it by 10 while counting.
 Step 02: Define a function to calculate a number raised to an exponent by multiplying the number by itself once for each exponent count.
 Step 03: Define a function to test an Armstrong number; save the original number and get its digit count.
@@ -75,7 +276,29 @@ Step 06: In main, read the lower and upper limits from the user.
 Step 07: Check every number from the lower limit through the upper limit; use the Armstrong test function for each number.
 Step 08: Display each number that passes the Armstrong test, then print a newline.
 
-Q04]
+..............................Q04..............................
+//CODE
+
+
+#include <stdio.h>
+
+int main(){
+    int n,i;
+    int num=1;
+    printf("Enter rows: ");
+    scanf("%d",&n);
+
+    for (i=0;i<=n;i++){
+        for (int j=0;j<=i;j++){
+            printf("%d ",num);
+            num=num+1;
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+//OUTPUTS
 
 Enter rows: 1
 1
@@ -92,13 +315,114 @@ Enter rows: 3
 4 5 6
 7 8 9 10
 
+//ALGORITHM
+
 Step 01: In main, read the number of rows from the user and initialize the number to print as 1.
 Step 02: Use an outer loop from row 0 through the entered row count.
 Step 03: For each row, use an inner loop from 0 through the current row index.
 Step 04: Print the current number followed by a space, then increment the number.
 Step 05: After each row, print a newline.
 
-Q05]
+..............................Q05..............................
+//CODE
+
+
+#include <stdio.h>
+
+//Maximum value
+int max(int a[],int n){
+    int max=a[0];
+    int i;
+
+    for (i=1;i<n;i++){
+        if (a[i]>max){
+            max=a[i];
+        }
+    }
+    return max;
+}
+
+//Minimum value
+int minimum(int a[],int n){
+    int min=a[0];
+    int i;
+
+    for (i=1;i<n;i++){
+        if (a[i]<min){
+            min=a[i];
+        }
+    }
+    return min;
+}
+
+//Sum
+int summ(int a[],int n){
+
+    int sum=0;
+    int i;
+
+    for (i=0;i<n;i++){
+
+        sum = sum + a[i];
+
+    }
+    return sum;
+
+}
+
+//Average
+float avg(int a[],int n){
+    float average = summ(a,n)/n;
+    return average;
+}
+
+//Number of even elements
+int evencount(int a[],int n){
+
+    int flag=0;
+    for (int i=0;i<n;i++){
+        if (a[i]%2==0){
+            flag++;
+        }
+    }
+    return flag;
+}
+
+//Number of odd elements
+int oddcount(int a[],int n){
+
+    int flag=0;
+    for (int i=0;i<n;i++){
+        if (a[i]%2!=0){
+            flag++;
+        }
+    }
+    return flag;
+}
+
+int main(){
+
+    int n;
+    int a[100];
+    printf("Enter number of entries: ");
+    scanf("%d",&n);
+    printf("Enter entries:\n");
+    for (int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+
+    //printing elements
+    printf("Maximum value   : %d\n",max(a,n));
+    printf("Minimum value   : %d\n",minimum(a,n));
+    printf("Sum             : %d\n",summ(a,n));
+    printf("Average         : %0.2f\n",avg(a,n));
+    printf("Odd count       : %d\n",oddcount(a,n));
+    printf("Even count      : %d\n",evencount(a,n));
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of entries: 5
 Enter entries:
@@ -130,6 +454,8 @@ Average         : 10.00
 Odd count       : 0
 Even count      : 3
 
+//ALGORITHM
+
 Step 01: Define a function to find the maximum array value; start with the first element and compare each remaining element, updating the maximum when a larger value is found.
 Step 02: Define a function to find the minimum array value; start with the first element and compare each remaining element, updating the minimum when a smaller value is found.
 Step 03: Define a sum function, initialize the running sum to 0, add every array element, and return the total.
@@ -140,7 +466,64 @@ Step 07: In main, read the number of entries, then read that many values into th
 Step 08: Call the maximum, minimum, sum, average, odd-count, and even-count functions and display each result.
 Step 09: Return from main.
 
-Q06]
+..............................Q06..............................
+//CODE
+
+
+#include <stdio.h>
+
+int seclarg(int a[],int n){
+    int lar,sec;
+    int i;
+
+    lar=a[0];
+    sec=a[0];
+
+    for (i=0;i<n;i++){
+        if (a[i]>lar){
+            lar=a[i];
+        }
+
+    }
+
+    for (i=0;i<n;i++){
+        if (a[i]<lar){
+            if (sec==lar || a[i]>sec){
+                sec=a[i];
+            }
+        }
+    }
+
+    if (sec==lar){
+        return -1;
+    }
+    return sec;
+}
+
+int main(){
+
+    int a[100];
+    int n,result;
+
+    printf("Enter number of elements: ");
+    scanf("%d",&n);
+
+    printf("Enter elements: \n");
+    for (int i=0;i<n;i++){
+        scanf("%d",&a[i]);
+    }
+
+    result = seclarg(a,n);
+
+    if (result==-1){
+        printf("Invalid\n");
+    }
+    else{
+        printf("Second largest number: %d\n",result);
+    }
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -157,6 +540,8 @@ Enter elements:
 7 7 7
 Invalid
 
+//ALGORITHM
+
 Step 01: Define a function that starts the largest and second-largest values with the first array element.
 Step 02: Scan the array to find the largest value.
 Step 03: Scan again for values below the largest; keep the greatest such value as the second largest.
@@ -164,7 +549,60 @@ Step 04: Return -1 if no distinct second-largest value was found; otherwise retu
 Step 05: In main, read the number of elements and the array, then call the function.
 Step 06: Display Invalid when the function returns -1; otherwise display the second-largest number.
 
-Q07]
+..............................Q07..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+void reverse(int a[], int n)
+{
+    int i, temp;
+
+    for (i = 0; i < n / 2; i++)
+    {
+        temp = a[i];
+        a[i] = a[n - 1 - i];
+        a[n - 1 - i] = temp;
+    }
+}
+
+int main()
+{
+    int a[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+    {
+        printf("Invalid array size\n");
+        return 1;
+    }
+
+    printf("Enter array elements:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+
+    reverse(a, n);
+
+    printf("Reversed array:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("%d ", a[i]);
+    }
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 4
 Enter array elements:
@@ -184,12 +622,65 @@ Enter array elements:
 Reversed array:
 42
 
+//ALGORITHM
+
 Step 01: Define a function that swaps the elements at opposite ends of the array, moving inward for half its length.
 Step 02: In main, read the array size and stop with an error if it is outside 1 to 100.
 Step 03: Read the array elements and call the reverse function.
 Step 04: Display the elements in their new order, then return from main.
 
-Q08]
+..............................Q08..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int search(int a[], int n, int x)
+{
+    int i, count = 0;
+
+    for (i = 0; i < n; i++)
+    {
+        if (a[i] == x)
+        {
+            printf("Position: %d\n", i + 1);
+            count++;
+        }
+    }
+
+    return count;
+}
+
+int main()
+{
+    int a[100], n, x, i, freq;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    printf("Enter array elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter value to search: ");
+    scanf("%d", &x);
+
+    freq = search(a, n, x);
+
+    if (freq == 0)
+        printf("Element not found\n");
+    else
+    {
+        printf("Element found\n");
+        printf("Frequency = %d\n", freq);
+    }
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter array elements:
@@ -217,12 +708,97 @@ Position: 3
 Element found
 Frequency = 3
 
+//ALGORITHM
+
 Step 01: Define a search function that scans every array element for the requested value.
 Step 02: For each match, display its 1-based position and increase the frequency count; return the count.
 Step 03: In main, read the array size, array elements, and value to search for.
 Step 04: Call the search function; display not found if its count is zero, otherwise display found and the frequency.
 
-Q09]
+..............................Q09..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int add(int a, int b)
+{
+    return a + b;
+}
+
+int subtract(int a, int b)
+{
+    return a - b;
+}
+
+int multiply(int a, int b)
+{
+    return a * b;
+}
+
+float divide(int a, int b)
+{
+    return (float)a / b;
+}
+
+int modulus(int a, int b)
+{
+    return a % b;
+}
+
+int main()
+{
+    int a, b, choice;
+
+    printf("1. Addition\n");
+    printf("2. Subtraction\n");
+    printf("3. Multiplication\n");
+    printf("4. Division\n");
+    printf("5. Modulus\n");
+
+    printf("Enter your choice: ");
+    scanf("%d", &choice);
+
+    printf("Enter two integers: ");
+    scanf("%d %d", &a, &b);
+
+    switch (choice)
+    {
+        case 1:
+            printf("Result = %d\n", add(a, b));
+            break;
+
+        case 2:
+            printf("Result = %d\n", subtract(a, b));
+            break;
+
+        case 3:
+            printf("Result = %d\n", multiply(a, b));
+            break;
+
+        case 4:
+            if (b == 0)
+                printf("Division by zero is not allowed\n");
+            else
+                printf("Result = %.2f\n", divide(a, b));
+            break;
+
+        case 5:
+            if (b == 0)
+                printf("Modulus by zero is not allowed\n");
+            else
+                printf("Result = %d\n", modulus(a, b));
+            break;
+
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+
+//OUTPUTS
 
 1. Addition
 2. Subtraction
@@ -251,13 +827,83 @@ Enter your choice: 5
 Enter two integers: 9 4
 Result = 1
 
+//ALGORITHM
+
 Step 01: Define separate functions that return the sum, difference, product, floating-point quotient, and remainder of two integers.
 Step 02: In main, display the operation menu and read the user's choice and two integers.
 Step 03: Use a switch statement to call and display the selected operation's result.
 Step 04: Before division or modulus, check whether the second integer is zero and display the matching error if it is.
 Step 05: Display Invalid choice for any menu choice outside 1 to 5, then return from main.
 
-Q10]
+..............................Q10..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    char str[200];
+    int i;
+    int upper = 0, lower = 0, digits = 0;
+    int spaces = 0, vowels = 0, consonants = 0;
+    int special = 0;
+
+    printf("Enter a line of text: ");
+    fgets(str, sizeof(str), stdin);
+
+    for (i = 0; str[i] != '\0'; i++)
+    {
+        char ch = str[i];
+
+        if (ch == '\n')
+            break;
+
+        if (ch >= 'A' && ch <= 'Z')
+        {
+            upper++;
+
+            if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U')
+                vowels++;
+            else
+                consonants++;
+        }
+        else if (ch >= 'a' && ch <= 'z')
+        {
+            lower++;
+
+            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                vowels++;
+            else
+                consonants++;
+        }
+        else if (ch >= '0' && ch <= '9')
+        {
+            digits++;
+        }
+        else if (ch == ' ')
+        {
+            spaces++;
+        }
+        else
+        {
+            special++;
+        }
+    }
+
+    printf("Uppercase letters = %d\n", upper);
+    printf("Lowercase letters = %d\n", lower);
+    printf("Digits = %d\n", digits);
+    printf("Spaces = %d\n", spaces);
+    printf("Vowels = %d\n", vowels);
+    printf("Consonants = %d\n", consonants);
+    printf("Special characters = %d\n", special);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter a line of text: Hello World 123!
 Uppercase letters = 2
@@ -286,14 +932,73 @@ Vowels = 1
 Consonants = 2
 Special characters = 2
 
+//ALGORITHM
+
 Step 01: In main, initialize counters for uppercase letters, lowercase letters, digits, spaces, vowels, consonants, and special characters.
 Step 02: Read a line of text and scan characters until the string ends or a newline is reached.
 Step 03: Count uppercase and lowercase letters separately; for each letter, also count whether it is a vowel or consonant.
 Step 04: Count numeric digits and spaces; classify every other character as special.
 Step 05: Display all seven counts and return from main.
 
+..............................Q11..............................
+//CODE
 
-Q11]
+
+
+#include <stdio.h>
+
+int isPrime(int n)
+{
+    int i;
+
+    if (n < 2)
+        return 0;
+
+    for (i = 2; i * i <= n; i++)
+    {
+        if (n % i == 0)
+            return 0;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    int a[100], n, i, count = 0;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Prime numbers: ");
+
+    for (i = 0; i < n; i++)
+    {
+        if (isPrime(a[i]))
+        {
+            printf("%d ", a[i]);
+            count++;
+        }
+        else{
+            printf("None.");
+            break;
+        }
+    }
+
+    printf("\nTotal prime elements = %d\n", count);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 4
 Enter elements:
@@ -313,6 +1018,8 @@ Enter elements:
 Prime numbers: 19 23 29 31 37
 Total prime elements = 5
 
+//ALGORITHM
+
 Step 01: Define a prime-check function; return false for values below 2, then test divisors from 2 while the divisor squared is at most the number.
 Step 02: Return false if any divisor divides evenly; otherwise return true.
 Step 03: In main, read the array size and stop if it is outside 1 to 100, then read the elements.
@@ -320,7 +1027,87 @@ Step 04: Check each element with the prime function, display and count prime val
 Step 05: When a non-prime value is encountered, display None and stop checking the array.
 Step 06: Display the total prime count and return from main.
 
-Q12]
+..............................Q12..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+void reverse(int a[], int x, int y)
+{
+    int temp;
+
+    while (x < y)
+    {
+        temp = a[x];
+        a[x] = a[y];
+        a[y] = temp;
+
+        x++;
+        y--;
+    }
+}
+
+int main()
+{
+    int a[100], n, k, i;
+    char dir;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter rotation count: ");
+    scanf("%d", &k);
+
+    if (k < 0)
+    {
+        printf("Invalid rotation count\n");
+        return 1;
+    }
+
+    k = k % n;
+
+    printf("Enter direction (L/R): ");
+    scanf(" %c", &dir);
+
+    if (dir == 'L' || dir == 'l')
+    {
+        reverse(a, 0, k - 1);
+        reverse(a, k, n - 1);
+        reverse(a, 0, n - 1);
+    }
+    else if (dir == 'R' || dir == 'r')
+    {
+        reverse(a, 0, n - 1);
+        reverse(a, 0, k - 1);
+        reverse(a, k, n - 1);
+    }
+    else
+    {
+        printf("Invalid direction\n");
+        return 1;
+    }
+
+    printf("Rotated array: ");
+
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 3
 Enter elements:
@@ -343,6 +1130,8 @@ Enter rotation count: 2
 Enter direction (L/R): L
 Rotated array: 6 8 1 2 4 
 
+//ALGORITHM
+
 Step 01: Define a function that reverses an array section by swapping its endpoints and moving both indexes toward the center.
 Step 02: In main, read and validate the array size, then read all elements.
 Step 03: Read the rotation count; reject a negative count and reduce the count modulo the array size.
@@ -350,7 +1139,66 @@ Step 04: Read the direction. For a left rotation, reverse the first k elements, 
 Step 05: For a right rotation, reverse the whole array, the first k elements, then the remaining elements.
 Step 06: Reject any other direction; otherwise display the rotated array and return.
 
-Q13]
+..............................Q13..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int removeDup(int a[], int n)
+{
+    int i, j, k;
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = i + 1; j < n; )
+        {
+            if (a[i] == a[j])
+            {
+                for (k = j; k < n - 1; k++)
+                    a[k] = a[k + 1];
+
+                n--;
+            }
+            else
+            {
+                j++;
+            }
+        }
+    }
+
+    return n;
+}
+
+int main()
+{
+    int a[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    n = removeDup(a, n);
+
+    printf("Array after removing duplicates: ");
+
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -367,13 +1215,75 @@ Enter elements:
 5 3 5 2 3 1
 Array after removing duplicates: 5 3 2 1
 
+//ALGORITHM
+
 Step 01: Define a function that compares each array element with the later elements.
 Step 02: When a duplicate is found, shift the following elements one position left and reduce the logical array length; otherwise advance to the next element.
 Step 03: Return the new length after all duplicates are removed.
 Step 04: In main, read and validate the array size, read the elements, and call the duplicate-removal function.
 Step 05: Display the remaining elements up to the returned length, then return from main.
 
-Q14]
+..............................Q14..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], b[100], c[200];
+    int n, m, i = 0, j = 0, k = 0;
+
+    printf("Enter size of first array: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter sorted first array:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Enter size of second array: ");
+    scanf("%d", &m);
+
+    if (m < 1 || m > 100)
+        return 1;
+
+    printf("Enter sorted second array:\n");
+
+    for (i = 0; i < m; i++)
+        scanf("%d", &b[i]);
+
+    i = 0;
+
+    while (i < n && j < m)
+    {
+        if (a[i] <= b[j])
+            c[k++] = a[i++];
+        else
+            c[k++] = b[j++];
+    }
+
+    while (i < n)
+        c[k++] = a[i++];
+
+    while (j < m)
+        c[k++] = b[j++];
+
+    printf("Merged array: ");
+
+    for (i = 0; i < k; i++)
+        printf("%d ", c[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter size of first array: 3
 Enter sorted first array:
@@ -399,13 +1309,85 @@ Enter sorted second array:
 3 4
 Merged array: 1 3 4
 
+//ALGORITHM
+
 Step 01: In main, read and validate the first array's size, then read its sorted values.
 Step 02: Read and validate the second array's size, then read its sorted values.
 Step 03: Compare the current unprocessed values from both arrays; copy the smaller value into the merged array and advance that input index.
 Step 04: When either input array ends, copy all remaining values from the other array.
 Step 05: Display the merged array and return from main.
 
-Q15]
+..............................Q15..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10], m, n, i, j;
+    int sum, maxRowSum, maxColSum;
+    int maxRow = 0, maxCol = 0;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    if (m < 1 || m > 10 || n < 1 || n > 10)
+        return 1;
+
+    printf("Enter matrix elements:\n");
+
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            scanf("%d", &a[i][j]);
+
+    maxRowSum = 0;
+
+    for (i = 0; i < m; i++)
+    {
+        sum = 0;
+
+        for (j = 0; j < n; j++)
+            sum += a[i][j];
+
+        printf("Row %d sum = %d\n", i + 1, sum);
+
+        if (i == 0 || sum > maxRowSum)
+        {
+            maxRowSum = sum;
+            maxRow = i;
+        }
+    }
+
+    maxColSum = 0;
+
+    for (j = 0; j < n; j++)
+    {
+        sum = 0;
+
+        for (i = 0; i < m; i++)
+            sum += a[i][j];
+
+        printf("Column %d sum = %d\n", j + 1, sum);
+
+        if (j == 0 || sum > maxColSum)
+        {
+            maxColSum = sum;
+            maxCol = j;
+        }
+    }
+
+    printf("Row with maximum sum = %d\n", maxRow + 1);
+    printf("Maximum row sum = %d\n", maxRowSum);
+
+    printf("Column with maximum sum = %d\n", maxCol + 1);
+    printf("Maximum column sum = %d\n", maxColSum);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter rows and columns: 2 2
 Enter matrix elements:
@@ -449,6 +1431,8 @@ Maximum row sum = 9
 Column with maximum sum = 2
 Maximum column sum = 12
 
+//ALGORITHM
+
 Step 01: In main, read the row and column counts; stop if either is outside 1 to 10.
 Step 02: Read every matrix element.
 Step 03: For each row, add its elements, display the row sum, and update the row with the greatest sum.
@@ -456,8 +1440,72 @@ Step 04: For each column, add its elements, display the column sum, and update t
 Step 05: Display the 1-based row and sum with the greatest total, then the 1-based column and sum with the greatest total.
 Step 06: Return from main.
 
+..............................Q16..............................
+//CODE
 
-Q16]
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10], m, n, i, j, k;
+    int rowMin, isSaddle, found = 0;
+
+    printf("Enter rows and columns: ");
+    scanf("%d %d", &m, &n);
+
+    if (m < 1 || m > 10 || n < 1 || n > 10)
+        return 1;
+
+    printf("Enter matrix elements:\n");
+
+    for (i = 0; i < m; i++)
+        for (j = 0; j < n; j++)
+            scanf("%d", &a[i][j]);
+
+    for (i = 0; i < m; i++)
+    {
+        rowMin = a[i][0];
+
+        for (j = 1; j < n; j++)
+        {
+            if (a[i][j] < rowMin)
+                rowMin = a[i][j];
+        }
+
+        for (j = 0; j < n; j++)
+        {
+            if (a[i][j] == rowMin)
+            {
+                isSaddle = 1;
+
+                for (k = 0; k < m; k++)
+                {
+                    if (a[k][j] > rowMin)
+                    {
+                        isSaddle = 0;
+                        break;
+                    }
+                }
+
+                if (isSaddle)
+                {
+                    printf("Saddle point = %d\n", rowMin);
+                    printf("Position = (%d, %d)\n", i + 1, j + 1);
+                    found = 1;
+                }
+            }
+        }
+    }
+
+    if (!found)
+        printf("No saddle point found\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter rows and columns: 2 2
 Enter matrix elements:
@@ -482,13 +1530,55 @@ Position = (1, 1)
 Saddle point = 1
 Position = (2, 1)
 
+//ALGORITHM
+
 Step 01: In main, read and validate matrix dimensions from 1 to 10, then read all matrix elements.
 Step 02: For each row, find its minimum value.
 Step 03: For each position holding that row minimum, scan its column; mark it as a saddle point if no column value is greater.
 Step 04: Display each saddle point and its 1-based position, and record that one was found.
 Step 05: If no saddle point was recorded, display that none was found; return from main.
 
-Q17]
+..............................Q17..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+// Calculate digit sum recursively
+int digitSum(int n)
+{
+    if (n == 0)
+        return 0;
+
+    return (n % 10) + digitSum(n / 10);
+}
+
+int main()
+{
+    int n, sum;
+
+    printf("Enter a positive integer: ");
+    scanf("%d", &n);
+
+    if (n < 0)
+    {
+        printf("Enter a non-negative integer\n");
+        return 1;
+    }
+
+    sum = digitSum(n);
+    printf("Sum of digits = %d\n", sum);
+
+    while (sum >= 10)
+        sum = digitSum(sum);
+
+    printf("Single digit result = %d\n", sum);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter a positive integer: 12345
 Sum of digits = 15
@@ -502,13 +1592,83 @@ Enter a positive integer: 7
 Sum of digits = 7
 Single digit result = 7
 
+//ALGORITHM
+
 Step 01: Define a recursive function that returns 0 for input 0; otherwise add the last digit to the function's result for the number without that digit.
 Step 02: In main, read a number and reject negative input.
 Step 03: Call the digit-sum function and display the sum.
 Step 04: While the sum has at least two digits, replace it with the digit sum again.
 Step 05: Display the resulting single digit and return from main.
 
-Q18]
+..............................Q18..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int maximum(int a[], int n)
+{
+    int max = a[0];
+    int i;
+
+    for (i = 1; i < n; i++)
+    {
+        if (a[i] > max)
+            max = a[i];
+    }
+
+    return max;
+}
+
+int minimum(int a[], int n)
+{
+    int min = a[0];
+    int i;
+
+    for (i = 1; i < n; i++)
+    {
+        if (a[i] < min)
+            min = a[i];
+    }
+
+    return min;
+}
+
+float average(int a[], int n)
+{
+    int sum = 0;
+    int i;
+
+    for (i = 0; i < n; i++)
+        sum += a[i];
+
+    return (float)sum / n;
+}
+
+int main()
+{
+    int a[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    printf("Maximum = %d\n", maximum(a, n));
+    printf("Minimum = %d\n", minimum(a, n));
+    printf("Average = %.2f\n", average(a, n));
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -531,13 +1691,52 @@ Maximum = 8
 Minimum = 2
 Average = 5.00
 
+//ALGORITHM
+
 Step 01: Define a function that scans the array and returns its maximum, starting from the first element.
 Step 02: Define a function that scans the array and returns its minimum, also starting from the first element.
 Step 03: Define an average function that sums all elements and divides the sum by the count as a float.
 Step 04: In main, read and validate the array size, then read the array values.
 Step 05: Call the three functions and display the maximum, minimum, and average; return.
 
-Q19]
+..............................Q19..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+void swap(int *a, int *b)
+{
+    int temp;
+
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main()
+{
+    int a, b, c;
+
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    if (a > b)
+        swap(&a, &b);
+
+    if (a > c)
+        swap(&a, &c);
+
+    if (b > c)
+        swap(&b, &c);
+
+    printf("Ascending order: %d %d %d\n", a, b, c);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter three numbers: 9 2 5
 Ascending order: 2 5 9
@@ -548,13 +1747,66 @@ Ascending order: 1 2 3
 Enter three numbers: 100 20 50
 Ascending order: 20 50 100
 
+//ALGORITHM
+
 Step 01: Define a swap function that exchanges two integers through their memory addresses using a temporary value.
 Step 02: In main, read three numbers.
 Step 03: Compare the first and second values and swap them if they are out of order.
 Step 04: Compare the first and third, then the second and third, swapping each pair when needed.
 Step 05: Display the three values in ascending order and return from main.
 
-Q20]
+..............................Q20..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[100], n, i;
+    int sum = 0, max, min;
+    int *p;
+    float avg;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    p = a;
+
+    max = *p;
+    min = *p;
+
+    for (i = 0; i < n; i++)
+    {
+        sum += *(p + i);
+
+        if (*(p + i) > max)
+            max = *(p + i);
+
+        if (*(p + i) < min)
+            min = *(p + i);
+    }
+
+    avg = (float)sum / n;
+
+    printf("Sum = %d\n", sum);
+    printf("Maximum = %d\n", max);
+    printf("Minimum = %d\n", min);
+    printf("Average = %.2f\n", avg);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -580,21 +1832,151 @@ Maximum = 7
 Minimum = 1
 Average = 5.00
 
+//ALGORITHM
+
 Step 01: In main, read and validate the array size, then read all array elements.
 Step 02: Set a pointer to the first array element and initialize the maximum and minimum from that value.
 Step 03: Traverse the array using pointer offsets; add each value to the sum and update the maximum and minimum.
 Step 04: Calculate the average by converting the sum to float before dividing by the element count.
 Step 05: Display the sum, maximum, minimum, and average, then return from main.
 
+..............................Q21..............................
+//CODE
 
-Q21]
+
+
+#include <stdio.h>
+
+void reverse(char *str)
+{
+    char *start = str;
+    char *end = str;
+    char temp;
+
+    while (*end != '\0' && *end != '\n')
+        end++;
+
+    end--;
+
+    while (start < end)
+    {
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
+    }
+}
+
+int main()
+{
+    char str[100];
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    reverse(str);
+
+    printf("Reversed string: %s", str);
+
+    return 0;
+}
+
+//OUTPUTS
+
+Enter a string: Karthik 
+Reversed string: kihtraK
+
+Enter a string: Sometimes
+Reversed string: semitemoS
+
+Enter a string: arboC
+Reversed string: Cobra
+
+//ALGORITHM
 
 Step 01: Define a reverse function that sets pointers to the beginning and end of the string.
 Step 02: Move the end pointer to the last character before the string terminator or newline.
 Step 03: Swap the characters at the two pointers and move them inward until they meet.
 Step 04: In main, read a line with fgets, call the reverse function, display the string, and return.
 
-Q22]
+..............................Q22..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+char toLower(char ch)
+{
+    if (ch >= 'A' && ch <= 'Z')
+        return ch + 32;
+
+    return ch;
+}
+
+int isAlphaNumeric(char ch)
+{
+    return (ch >= 'A' && ch <= 'Z') ||
+           (ch >= 'a' && ch <= 'z') ||
+           (ch >= '0' && ch <= '9');
+}
+
+int palindrome(char str[])
+{
+    int start = 0, end = 0;
+
+    while (str[end] != '\0')
+        end++;
+
+    end--;
+
+    while (start < end)
+    {
+        while (start < end && !isAlphaNumeric(str[start]))
+            start++;
+
+        while (start < end && !isAlphaNumeric(str[end]))
+            end--;
+
+        if (toLower(str[start]) != toLower(str[end]))
+            return 0;
+
+        start++;
+        end--;
+    }
+
+    return 1;
+}
+
+int main()
+{
+    char str[200];
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    if (palindrome(str))
+        printf("Palindrome\n");
+    else
+        printf("Not a palindrome\n");
+
+    return 0;
+}
+
+//OUTPUTS
+
+Enter a sentence: Karthik
+Not a palindrome
+
+Enter a sentence: Sometimes
+Not a palindrome
+
+Enter a sentence: Malayalam
+Palindrome
+
+//ALGORITHM
 
 Step 01: Define a function that converts uppercase letters to lowercase and leaves other characters unchanged.
 Step 02: Define a function that returns whether a character is an English letter or digit.
@@ -603,7 +1985,90 @@ Step 04: Skip non-alphanumeric characters at each end and compare the remaining 
 Step 05: Return false on a mismatch and true when all pairs match.
 Step 06: In main, read a sentence, call the palindrome function, display the result, and return.
 
-Q23]
+..............................Q23..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+char lower(char ch)
+{
+    if (ch >= 'A' && ch <= 'Z')
+        return ch + 32;
+
+    return ch;
+}
+
+int wordFrequency(char str[], char word[])
+{
+    int i = 0, j, count = 0, match;
+
+    while (str[i] != '\0')
+    {
+        while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+            i++;
+
+        if (str[i] == '\0')
+            break;
+
+        j = 0;
+        match = 1;
+
+        while (str[i + j] != '\0' &&
+               str[i + j] != ' ' &&
+               str[i + j] != '\n' &&
+               str[i + j] != '\t')
+        {
+            if (word[j] == '\0' ||
+                lower(str[i + j]) != lower(word[j]))
+                match = 0;
+
+            j++;
+        }
+
+        if (word[j] != '\0')
+            match = 0;
+
+        if (match)
+            count++;
+
+        i += j;
+    }
+
+    return count;
+}
+
+int main()
+{
+    char str[300], word[50];
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    printf("Enter the word to search: ");
+    scanf("%49s", word);
+
+    printf("Frequency = %d\n", wordFrequency(str, word));
+
+    return 0;
+}
+
+//OUTPUTS
+
+Enter a sentence: Take a gamble
+Enter the word to search: a
+Frequency = 1
+
+Enter a sentence: I too me too he too 
+Enter the word to search: too
+Frequency = 3
+
+Enter a sentence: There is a place there
+Enter the word to search: give
+Frequency = 0
+
+//ALGORITHM
 
 Step 01: Define a function that converts uppercase letters to lowercase.
 Step 02: Define a word-frequency function that scans the sentence, skipping spaces, newlines, and tabs between words.
@@ -611,7 +2076,98 @@ Step 03: Compare each word with the search word character by character without r
 Step 04: Count matching words, advance to the next word, and return the frequency.
 Step 05: In main, read the sentence and search word, call the function, display the frequency, and return.
 
-Q24]
+..............................Q24..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    char str[300], longest[100], shortest[100];
+    char word[100];
+    int i = 0, j, len;
+    int count = 0, maxLen = 0, minLen = 0;
+
+    printf("Enter a sentence: ");
+    fgets(str, sizeof(str), stdin);
+
+    while (str[i] != '\0')
+    {
+        while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t')
+            i++;
+
+        if (str[i] == '\0')
+            break;
+
+        j = 0;
+
+        while (str[i] != '\0' && str[i] != ' ' &&
+               str[i] != '\n' && str[i] != '\t')
+        {
+            if (j < 99)
+                word[j++] = str[i];
+
+            i++;
+        }
+
+        word[j] = '\0';
+        len = j;
+        count++;
+
+        if (count == 1 || len > maxLen)
+        {
+            maxLen = len;
+            for (j = 0; j <= len; j++)
+                longest[j] = word[j];
+        }
+
+        if (count == 1 || len < minLen)
+        {
+            minLen = len;
+            for (j = 0; j <= len; j++)
+                shortest[j] = word[j];
+        }
+    }
+
+    printf("Number of words = %d\n", count);
+
+    if (count > 0)
+    {
+        printf("Longest word = %s\n", longest);
+        printf("Length of longest word = %d\n", maxLen);
+        printf("Shortest word = %s\n", shortest);
+        printf("Length of shortest word = %d\n", minLen);
+    }
+
+    return 0;
+}
+
+//OUTPUTS
+
+Enter a sentence: Take a gamble 
+Number of words = 3
+Longest word = gamble
+Length of longest word = 6
+Shortest word = a
+Length of shortest word = 1
+
+Enter a sentence: Sometimes its hard to know
+Number of words = 5
+Longest word = Sometimes
+Length of longest word = 9
+Shortest word = to
+Length of shortest word = 2
+
+Enter a sentence: Karthik
+Number of words = 1
+Longest word = Karthik
+Length of longest word = 7
+Shortest word = Karthik
+Length of shortest word = 7
+
+//ALGORITHM
 
 Step 01: In main, read a sentence and initialize the word count and longest and shortest lengths.
 Step 02: Scan through the sentence, skipping spaces, newlines, and tabs before each word.
@@ -621,7 +2177,135 @@ Step 05: If it is the first word or shorter than the current shortest, save it a
 Step 06: Display the word count; when at least one word exists, display the longest and shortest words and their lengths.
 Step 07: Return from main.
 
-Q25]
+..............................Q25..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int my_strlen(char s[])
+{
+    int i = 0;
+
+    while (s[i] != '\0')
+        i++;
+
+    return i;
+}
+
+void my_strcpy(char dest[], char src[])
+{
+    int i = 0;
+
+    while ((dest[i] = src[i]) != '\0')
+        i++;
+}
+
+int my_strcmp(char a[], char b[])
+{
+    int i = 0;
+
+    while (a[i] == b[i] && a[i] != '\0')
+        i++;
+
+    return (unsigned char)a[i] - (unsigned char)b[i];
+}
+
+void my_strcat(char dest[], char src[])
+{
+    int i = my_strlen(dest);
+    int j = 0;
+
+    while ((dest[i++] = src[j++]) != '\0')
+        ;
+}
+
+int main()
+{
+    char a[200], b[100], copy[200];
+    int choice;
+
+    printf("1. Length\n");
+    printf("2. Copy\n");
+    printf("3. Compare\n");
+    printf("4. Concatenate\n");
+    printf("Enter choice: ");
+    scanf("%d", &choice);
+
+    switch (choice)
+    {
+        case 1:
+            printf("Enter string: ");
+            scanf(" %199[^\n]", a);
+            printf("Length = %d\n", my_strlen(a));
+            break;
+
+        case 2:
+            printf("Enter source string: ");
+            scanf(" %99[^\n]", b);
+            my_strcpy(copy, b);
+            printf("Copied string = %s\n", copy);
+            break;
+
+        case 3:
+            printf("Enter first string: ");
+            scanf(" %99[^\n]", a);
+            printf("Enter second string: ");
+            scanf(" %99[^\n]", b);
+
+            if (my_strcmp(a, b) == 0)
+                printf("Strings are equal\n");
+            else
+                printf("Strings are different\n");
+            break;
+
+        case 4:
+            printf("Enter first string: ");
+            scanf(" %99[^\n]", a);
+            printf("Enter second string: ");
+            scanf(" %99[^\n]", b);
+
+            my_strcat(a, b);
+            printf("Concatenated string = %s\n", a);
+            break;
+
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+
+//OUTPUTS
+
+1. Length
+2. Copy
+3. Compare
+4. Concatenate
+Enter choice: 1
+Enter string: Karthik
+Length = 7
+
+1. Length
+2. Copy
+3. Compare
+4. Concatenate
+Enter choice: 4
+Enter first string: Hello 
+Enter second string: _World
+Concatenated string = Hello_World
+
+1. Length
+2. Copy
+3. Compare
+4. Concatenate
+Enter choice: 3
+Enter first string: Malayalam
+Enter second string: malayalaM
+Strings are different
+
+//ALGORITHM
 
 Step 01: Define a string-length function that counts characters until the null terminator.
 Step 02: Define a copy function that copies characters from the source through the null terminator.
@@ -631,8 +2315,108 @@ Step 05: In main, display a menu and read the user's choice.
 Step 06: For length, copy, compare, or concatenate, read the needed string or strings, call the matching function, and display its result.
 Step 07: Display Invalid choice for any other option, then return from main.
 
+..............................Q26..............................
+//CODE
 
-Q26]
+
+
+#include <stdio.h>
+
+int compare(char a[], char b[])
+{
+    int i = 0;
+
+    while (a[i] != '\0' && b[i] != '\0')
+    {
+        if (a[i] != b[i])
+            return a[i] - b[i];
+
+        i++;
+    }
+
+    return a[i] - b[i];
+}
+
+void swap(char a[], char b[])
+{
+    char temp[100];
+    int i;
+
+    for (i = 0; i < 100; i++)
+    {
+        temp[i] = a[i];
+        a[i] = b[i];
+        b[i] = temp[i];
+
+        if (temp[i] == '\0' && a[i] == '\0' && b[i] == '\0')
+            break;
+    }
+}
+
+int main()
+{
+    char names[50][100];
+    int n, i, j;
+
+    printf("Enter number of names: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 50)
+        return 1;
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter name %d: ", i + 1);
+        scanf(" %99[^\n]", names[i]);
+    }
+
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - 1 - i; j++)
+        {
+            if (compare(names[j], names[j + 1]) > 0)
+                swap(names[j], names[j + 1]);
+        }
+    }
+
+    printf("Names in alphabetical order:\n");
+
+    for (i = 0; i < n; i++)
+        printf("%s\n", names[i]);
+
+    return 0;
+}
+
+//OUTPUTS
+
+Enter number of names: 3
+Enter name 1: Tom    
+Enter name 2: Rom
+Enter name 3: Gom
+Names in alphabetical order:
+Gom
+Rom
+Tom
+
+Enter number of names: 4
+Enter name 1: Cat 
+Enter name 2: Bat
+Enter name 3: Mat
+Enter name 4: Sat
+Names in alphabetical order:
+Bat
+Cat
+Mat
+Sat
+
+Enter number of names: 2
+Enter name 1: Asus
+Enter name 2: Arous 
+Names in alphabetical order:
+Arous
+Asus
+
+//ALGORITHM
 
 Step 01: Define a comparison function that scans two names until characters differ or either string ends, then returns their character difference.
 Step 02: Define a swap function that exchanges two name strings character by character using a temporary buffer.
@@ -640,7 +2424,59 @@ Step 03: In main, read and validate the number of names, then read each name.
 Step 04: Use nested loops to compare neighboring names and swap them when they are out of alphabetical order.
 Step 05: Display the sorted names and return from main.
 
-Q27]
+..............................Q27..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+void sortArray(int *p, int n)
+{
+    int i, j, temp;
+
+    for (i = 0; i < n - 1; i++)
+    {
+        for (j = 0; j < n - 1 - i; j++)
+        {
+            if (*(p + j) > *(p + j + 1))
+            {
+                temp = *(p + j);
+                *(p + j) = *(p + j + 1);
+                *(p + j + 1) = temp;
+            }
+        }
+    }
+}
+
+int main()
+{
+    int a[100], n, i;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    sortArray(a, n);
+
+    printf("Sorted array: ");
+
+    for (i = 0; i < n; i++)
+        printf("%d ", a[i]);
+
+    printf("\n");
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -657,12 +2493,72 @@ Enter elements:
 42
 Sorted array: 42
 
+//ALGORITHM
+
 Step 01: Define a sorting function that receives the array through a pointer.
 Step 02: Use nested loops to compare neighboring values by pointer offset and swap them when the first is greater.
 Step 03: In main, read and validate the array size, then read its values.
 Step 04: Call the sorting function, display the sorted array, and return.
 
-Q28]
+..............................Q28..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+void analyse(int a[], int n,
+             int *max, int *min,
+             int *sum, float *avg)
+{
+    int i;
+
+    *max = a[0];
+    *min = a[0];
+    *sum = 0;
+
+    for (i = 0; i < n; i++)
+    {
+        *sum += a[i];
+
+        if (a[i] > *max)
+            *max = a[i];
+
+        if (a[i] < *min)
+            *min = a[i];
+    }
+
+    *avg = (float)(*sum) / n;
+}
+
+int main()
+{
+    int a[100], n, i;
+    int max, min, sum;
+    float avg;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 100)
+        return 1;
+
+    printf("Enter elements:\n");
+
+    for (i = 0; i < n; i++)
+        scanf("%d", &a[i]);
+
+    analyse(a, n, &max, &min, &sum, &avg);
+
+    printf("Maximum = %d\n", max);
+    printf("Minimum = %d\n", min);
+    printf("Sum = %d\n", sum);
+    printf("Average = %.2f\n", avg);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of elements: 5
 Enter elements:
@@ -688,6 +2584,8 @@ Minimum = 10
 Sum = 30
 Average = 10.00
 
+//ALGORITHM
+
 Step 01: Define an analysis function that receives the array and addresses for maximum, minimum, sum, and average results.
 Step 02: Initialize maximum and minimum from the first element and initialize the sum to zero.
 Step 03: Scan the array, accumulating the sum and updating the maximum and minimum as needed.
@@ -695,7 +2593,63 @@ Step 04: Calculate the average as a floating-point sum divided by the element co
 Step 05: In main, read and validate the array size, read its values, and call the analysis function with result addresses.
 Step 06: Display the maximum, minimum, sum, and average, then return from main.
 
-Q29]
+..............................Q29..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+int main()
+{
+    int a[10][10], n, i, j;
+    int mainSum = 0, secSum = 0, boundarySum = 0;
+    int aboveSum = 0, belowSum = 0;
+
+    printf("Enter order of matrix: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > 10)
+        return 1;
+
+    printf("Enter matrix elements:\n");
+
+    for (i = 0; i < n; i++)
+        for (j = 0; j < n; j++)
+            scanf("%d", &a[i][j]);
+
+    for (i = 0; i < n; i++)
+    {
+        for (j = 0; j < n; j++)
+        {
+            if (i == j)
+                mainSum += a[i][j];
+
+            if (i + j == n - 1)
+                secSum += a[i][j];
+
+            if (i == 0 || i == n - 1 ||
+                j == 0 || j == n - 1)
+                boundarySum += a[i][j];
+
+            if (i < j)
+                aboveSum += a[i][j];
+
+            if (i > j)
+                belowSum += a[i][j];
+        }
+    }
+
+    printf("Main diagonal sum = %d\n", mainSum);
+    printf("Secondary diagonal sum = %d\n", secSum);
+    printf("Boundary sum = %d\n", boundarySum);
+    printf("Above main diagonal sum = %d\n", aboveSum);
+    printf("Below main diagonal sum = %d\n", belowSum);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter order of matrix: 2
 Enter matrix elements:
@@ -727,6 +2681,8 @@ Boundary sum = 5
 Above main diagonal sum = 0
 Below main diagonal sum = 0
 
+//ALGORITHM
+
 Step 01: In main, read and validate the order of the square matrix, then read all matrix elements.
 Step 02: Visit every matrix position using nested loops.
 Step 03: Add values where the row and column indexes match to the main-diagonal sum.
@@ -734,7 +2690,146 @@ Step 04: Add values where the indexes total one less than the matrix order to th
 Step 05: Add values on the outer edge to the boundary sum, above the main diagonal to the above sum, and below it to the below sum.
 Step 06: Display all five sums and return from main.
 
-Q30]
+..............................Q30..............................
+//CODE
+
+
+
+#include <stdio.h>
+
+#define SUBJECTS 5
+#define MAX_STUDENTS 100
+
+int calculateTotal(int marks[], int n)
+{
+    int i, total = 0;
+
+    for (i = 0; i < n; i++)
+        total += marks[i];
+
+    return total;
+}
+
+float calculateAverage(int marks[], int n)
+{
+    return (float)calculateTotal(marks, n) / n;
+}
+
+int findTopper(int totals[], int n)
+{
+    int i, topper = 0;
+
+    for (i = 1; i < n; i++)
+    {
+        if (totals[i] > totals[topper])
+            topper = i;
+    }
+
+    return topper;
+}
+
+int subjectMaximum(int marks[][SUBJECTS], int n, int sub)
+{
+    int i, max = marks[0][sub];
+
+    for (i = 1; i < n; i++)
+    {
+        if (marks[i][sub] > max)
+            max = marks[i][sub];
+    }
+
+    return max;
+}
+
+float subjectAverage(int marks[][SUBJECTS], int n, int sub)
+{
+    int i, sum = 0;
+
+    for (i = 0; i < n; i++)
+        sum += marks[i][sub];
+
+    return (float)sum / n;
+}
+
+int main()
+{
+    int marks[MAX_STUDENTS][SUBJECTS];
+    int totals[MAX_STUDENTS];
+    float averages[MAX_STUDENTS];
+    int n, i, j, topper;
+    int allPass, passCount = 0, failCount = 0;
+
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    if (n < 1 || n > MAX_STUDENTS)
+        return 1;
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Enter marks for student %d (5 subjects): ", i + 1);
+
+        for (j = 0; j < SUBJECTS; j++)
+        {
+            scanf("%d", &marks[i][j]);
+
+            if (marks[i][j] < 0 || marks[i][j] > 100)
+            {
+                printf("Invalid marks\n");
+                return 1;
+            }
+        }
+
+        totals[i] = calculateTotal(marks[i], SUBJECTS);
+        averages[i] = calculateAverage(marks[i], SUBJECTS);
+    }
+
+    printf("\nStudent Results:\n");
+
+    for (i = 0; i < n; i++)
+    {
+        printf("Student %d: Total = %d, Average = %.2f\n",
+               i + 1, totals[i], averages[i]);
+    }
+
+    topper = findTopper(totals, n);
+
+    printf("\nOverall topper: Student %d\n", topper + 1);
+    printf("Topper total = %d\n", totals[topper]);
+
+    for (j = 0; j < SUBJECTS; j++)
+    {
+        printf("Subject %d: Maximum = %d, Average = %.2f\n",
+               j + 1,
+               subjectMaximum(marks, n, j),
+               subjectAverage(marks, n, j));
+    }
+
+    for (i = 0; i < n; i++)
+    {
+        allPass = 1;
+
+        for (j = 0; j < SUBJECTS; j++)
+        {
+            if (marks[i][j] < 50)
+                allPass = 0;
+        }
+
+        if (allPass)
+            passCount++;
+        else
+            failCount++;
+    }
+
+    printf("Students scoring 50 or more in all subjects = %d\n",
+           passCount);
+    printf("Students failing at least one subject = %d\n",
+           failCount);
+
+    return 0;
+}
+
+//OUTPUTS
 
 Enter number of students: 2
 Enter marks for student 1 (5 subjects): 90 80 70 60 50
@@ -790,6 +2885,8 @@ Subject 5: Maximum = 100, Average = 100.00
 Students scoring 50 or more in all subjects = 1
 Students failing at least one subject = 0
 
+//ALGORITHM
+
 Step 01: Define a function that totals a student's marks and another that calculates the average by calling the total function.
 Step 02: Define a function that finds the index of the largest student total.
 Step 03: Define functions that find the maximum mark and average mark for a selected subject across all students.
@@ -799,3 +2896,4 @@ Step 06: Display every student's total and average, find the topper, and display
 Step 07: For each subject, display its maximum mark and average.
 Step 08: For each student, check whether every subject mark is at least 50; count students who pass all subjects and those who fail at least one.
 Step 09: Display both counts and return from main.
+
