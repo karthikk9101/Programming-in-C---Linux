@@ -1,5 +1,26 @@
 Q01]
 
+Enter digit: 12345
+Number of digits  : 5
+Sum of digits     : 15
+Product of digits : 120
+Largest of digits : 5
+Smallest of digits: 1
+
+Enter digit: 246
+Number of digits  : 3
+Sum of digits     : 12
+Product of digits : 48
+Largest of digits : 6
+Smallest of digits: 2
+
+Enter digit: 135
+Number of digits  : 3
+Sum of digits     : 9
+Product of digits : 15
+Largest of digits : 5
+Smallest of digits: 1
+
 Step 01: Read an integer from the user.
 Step 02: Use a funciton to count its digits by repeatedly dividing it by 10.
 Step 03: Use a funciton to find the sum of its digits.
@@ -8,6 +29,18 @@ Step 05: Use a funciton to find the largest and smallest digits.
 Step 06: Display the digit count, sum, product, largest digit, and smallest digit.
 
 Q02]
+
+Enter a positive number: 121
+Reversed number: 121
+Positive palindrome.
+
+Enter a positive number: 123
+Reversed number: 321
+Negative palindrome.
+
+Enter a positive number: 1221
+Reversed number: 1221
+Positive palindrome.
 
 Step 01: Read a positive integer from the user.
 Step 02: Extract each digit using the remainder after dividing by 10.
@@ -18,6 +51,751 @@ Step 06: Display whether the number is a palindrome.
 
 Q03]
 
-Step 01: Use a function to count the digits.
-Step 02: Use a function to find the power.
-Step 03: 
+Enter lower limits: 1
+Enter upper limit: 100
+Armstrong numbers:
+1 2 3 4 5 6 7 8 9
+
+Enter lower limits: 100
+Enter upper limit: 500
+Armstrong numbers:
+153 370 371 407
+
+Enter lower limits: 150
+Enter upper limit: 160
+Armstrong numbers:
+153
+
+Step 01: Define a function to count the digits in a number; return 1 when the number is 0, otherwise repeatedly divide it by 10 while counting.
+Step 02: Define a function to calculate a number raised to an exponent by multiplying the number by itself once for each exponent count.
+Step 03: Define a function to test an Armstrong number; save the original number and get its digit count.
+Step 04: In the Armstrong test function, extract each digit with the remainder after division by 10, raise it to the digit count, add it to the running sum, and remove the digit by dividing by 10.
+Step 05: Compare the sum of the powered digits with the saved original number and return whether they are equal.
+Step 06: In main, read the lower and upper limits from the user.
+Step 07: Check every number from the lower limit through the upper limit; use the Armstrong test function for each number.
+Step 08: Display each number that passes the Armstrong test, then print a newline.
+
+Q04]
+
+Enter rows: 1
+1
+2 3
+
+Enter rows: 2
+1
+2 3
+4 5 6
+
+Enter rows: 3
+1
+2 3
+4 5 6
+7 8 9 10
+
+Step 01: In main, read the number of rows from the user and initialize the number to print as 1.
+Step 02: Use an outer loop from row 0 through the entered row count.
+Step 03: For each row, use an inner loop from 0 through the current row index.
+Step 04: Print the current number followed by a space, then increment the number.
+Step 05: After each row, print a newline.
+
+Q05]
+
+Enter number of entries: 5
+Enter entries:
+4 2 8 1 5
+Maximum value   : 8
+Minimum value   : 1
+Sum             : 20
+Average         : 4.00
+Odd count       : 2
+Even count      : 3
+
+Enter number of entries: 4
+Enter entries:
+3 0 6 9
+Maximum value   : 9
+Minimum value   : 0
+Sum             : 18
+Average         : 4.00
+Odd count       : 2
+Even count      : 2
+
+Enter number of entries: 3
+Enter entries:
+10 10 10
+Maximum value   : 10
+Minimum value   : 10
+Sum             : 30
+Average         : 10.00
+Odd count       : 0
+Even count      : 3
+
+Step 01: Define a function to find the maximum array value; start with the first element and compare each remaining element, updating the maximum when a larger value is found.
+Step 02: Define a function to find the minimum array value; start with the first element and compare each remaining element, updating the minimum when a smaller value is found.
+Step 03: Define a sum function, initialize the running sum to 0, add every array element, and return the total.
+Step 04: Define an average function that calls the sum function, divides the total by the element count, and stores the result as a float. The division uses integer operands, so the fractional part is discarded.
+Step 05: Define a function to count even elements by checking each element's remainder after division by 2 and incrementing the count when it is 0.
+Step 06: Define a function to count odd elements by checking each element's remainder after division by 2 and incrementing the count when it is not 0.
+Step 07: In main, read the number of entries, then read that many values into the array.
+Step 08: Call the maximum, minimum, sum, average, odd-count, and even-count functions and display each result.
+Step 09: Return from main.
+
+Q06]
+
+Enter number of elements: 5
+Enter elements:
+1 4 2 7 5
+Second largest number: 5
+
+Enter number of elements: 4
+Enter elements:
+10 5 8 3
+Second largest number: 8
+
+Enter number of elements: 3
+Enter elements:
+7 7 7
+Invalid
+
+Step 01: Define a function that starts the largest and second-largest values with the first array element.
+Step 02: Scan the array to find the largest value.
+Step 03: Scan again for values below the largest; keep the greatest such value as the second largest.
+Step 04: Return -1 if no distinct second-largest value was found; otherwise return that value.
+Step 05: In main, read the number of elements and the array, then call the function.
+Step 06: Display Invalid when the function returns -1; otherwise display the second-largest number.
+
+Q07]
+
+Enter number of elements: 4
+Enter array elements:
+1 2 3 4
+Reversed array:
+4 3 2 1
+
+Enter number of elements: 5
+Enter array elements:
+-1 0 2 9 3
+Reversed array:
+3 9 2 0 -1
+
+Enter number of elements: 1
+Enter array elements:
+42
+Reversed array:
+42
+
+Step 01: Define a function that swaps the elements at opposite ends of the array, moving inward for half its length.
+Step 02: In main, read the array size and stop with an error if it is outside 1 to 100.
+Step 03: Read the array elements and call the reverse function.
+Step 04: Display the elements in their new order, then return from main.
+
+Q08]
+
+Enter number of elements: 5
+Enter array elements:
+1 2 2 3 2
+Enter value to search: 2
+Position: 2
+Position: 3
+Position: 5
+Element found
+Frequency = 3
+
+Enter number of elements: 4
+Enter array elements:
+5 6 7 8
+Enter value to search: 9
+Element not found
+
+Enter number of elements: 3
+Enter array elements:
+4 4 4
+Enter value to search: 4
+Position: 1
+Position: 2
+Position: 3
+Element found
+Frequency = 3
+
+Step 01: Define a search function that scans every array element for the requested value.
+Step 02: For each match, display its 1-based position and increase the frequency count; return the count.
+Step 03: In main, read the array size, array elements, and value to search for.
+Step 04: Call the search function; display not found if its count is zero, otherwise display found and the frequency.
+
+Q09]
+
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Modulus
+Enter your choice: 1
+Enter two integers: 4 6
+Result = 10
+
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Modulus
+Enter your choice: 4
+Enter two integers: 7 2
+Result = 3.50
+
+1. Addition
+2. Subtraction
+3. Multiplication
+4. Division
+5. Modulus
+Enter your choice: 5
+Enter two integers: 9 4
+Result = 1
+
+Step 01: Define separate functions that return the sum, difference, product, floating-point quotient, and remainder of two integers.
+Step 02: In main, display the operation menu and read the user's choice and two integers.
+Step 03: Use a switch statement to call and display the selected operation's result.
+Step 04: Before division or modulus, check whether the second integer is zero and display the matching error if it is.
+Step 05: Display Invalid choice for any menu choice outside 1 to 5, then return from main.
+
+Q10]
+
+Enter a line of text: Hello World 123!
+Uppercase letters = 2
+Lowercase letters = 8
+Digits = 3
+Spaces = 2
+Vowels = 3
+Consonants = 7
+Special characters = 1
+
+Enter a line of text: AEIOU aeiou
+Uppercase letters = 5
+Lowercase letters = 5
+Digits = 0
+Spaces = 1
+Vowels = 10
+Consonants = 0
+Special characters = 0
+
+Enter a line of text: abc-42?
+Uppercase letters = 0
+Lowercase letters = 3
+Digits = 2
+Spaces = 0
+Vowels = 1
+Consonants = 2
+Special characters = 2
+
+Step 01: In main, initialize counters for uppercase letters, lowercase letters, digits, spaces, vowels, consonants, and special characters.
+Step 02: Read a line of text and scan characters until the string ends or a newline is reached.
+Step 03: Count uppercase and lowercase letters separately; for each letter, also count whether it is a vowel or consonant.
+Step 04: Count numeric digits and spaces; classify every other character as special.
+Step 05: Display all seven counts and return from main.
+
+
+Q11]
+
+Enter number of elements: 4
+Enter elements:
+2 3 5 7
+Prime numbers: 2 3 5 7
+Total prime elements = 4
+
+Enter number of elements: 3
+Enter elements:
+11 13 17
+Prime numbers: 11 13 17
+Total prime elements = 3
+
+Enter number of elements: 5
+Enter elements:
+19 23 29 31 37
+Prime numbers: 19 23 29 31 37
+Total prime elements = 5
+
+Step 01: Define a prime-check function; return false for values below 2, then test divisors from 2 while the divisor squared is at most the number.
+Step 02: Return false if any divisor divides evenly; otherwise return true.
+Step 03: In main, read the array size and stop if it is outside 1 to 100, then read the elements.
+Step 04: Check each element with the prime function, display and count prime values.
+Step 05: When a non-prime value is encountered, display None and stop checking the array.
+Step 06: Display the total prime count and return from main.
+
+Q12]
+
+Enter number of elements: 3
+Enter elements:
+12 43 56
+Enter rotation count: 2
+Enter direction (L/R): L
+Rotated array: 56 12 43 
+
+Enter number of elements: 4
+Enter elements:
+3 5 1 9
+Enter rotation count: 3
+Enter direction (L/R): R
+Rotated array: 5 1 9 3 
+
+Enter number of elements: 5
+Enter elements:
+2 4 6 8 1
+Enter rotation count: 2
+Enter direction (L/R): L
+Rotated array: 6 8 1 2 4 
+
+Step 01: Define a function that reverses an array section by swapping its endpoints and moving both indexes toward the center.
+Step 02: In main, read and validate the array size, then read all elements.
+Step 03: Read the rotation count; reject a negative count and reduce the count modulo the array size.
+Step 04: Read the direction. For a left rotation, reverse the first k elements, the remaining elements, then the whole array.
+Step 05: For a right rotation, reverse the whole array, the first k elements, then the remaining elements.
+Step 06: Reject any other direction; otherwise display the rotated array and return.
+
+Q13]
+
+Enter number of elements: 5
+Enter elements:
+1 2 2 3 1
+Array after removing duplicates: 1 2 3
+
+Enter number of elements: 4
+Enter elements:
+4 4 4 4
+Array after removing duplicates: 4
+
+Enter number of elements: 6
+Enter elements:
+5 3 5 2 3 1
+Array after removing duplicates: 5 3 2 1
+
+Step 01: Define a function that compares each array element with the later elements.
+Step 02: When a duplicate is found, shift the following elements one position left and reduce the logical array length; otherwise advance to the next element.
+Step 03: Return the new length after all duplicates are removed.
+Step 04: In main, read and validate the array size, read the elements, and call the duplicate-removal function.
+Step 05: Display the remaining elements up to the returned length, then return from main.
+
+Q14]
+
+Enter size of first array: 3
+Enter sorted first array:
+1 3 5
+Enter size of second array: 3
+Enter sorted second array:
+2 4 6
+Merged array: 1 2 3 4 5 6
+
+Enter size of first array: 3
+Enter sorted first array:
+0 2 9
+Enter size of second array: 3
+Enter sorted second array:
+0 2 10
+Merged array: 0 0 2 2 9 10
+
+Enter size of first array: 1
+Enter sorted first array:
+1
+Enter size of second array: 2
+Enter sorted second array:
+3 4
+Merged array: 1 3 4
+
+Step 01: In main, read and validate the first array's size, then read its sorted values.
+Step 02: Read and validate the second array's size, then read its sorted values.
+Step 03: Compare the current unprocessed values from both arrays; copy the smaller value into the merged array and advance that input index.
+Step 04: When either input array ends, copy all remaining values from the other array.
+Step 05: Display the merged array and return from main.
+
+Q15]
+
+Enter rows and columns: 2 2
+Enter matrix elements:
+1 2
+3 4
+Row 1 sum = 3
+Row 2 sum = 7
+Column 1 sum = 4
+Column 2 sum = 6
+Row with maximum sum = 2
+Maximum row sum = 7
+Column with maximum sum = 2
+Maximum column sum = 6
+
+Enter rows and columns: 2 3
+Enter matrix elements:
+1 1 1
+2 2 2
+Row 1 sum = 3
+Row 2 sum = 6
+Column 1 sum = 3
+Column 2 sum = 3
+Column 3 sum = 3
+Row with maximum sum = 2
+Maximum row sum = 6
+Column with maximum sum = 1
+Maximum column sum = 3
+
+Enter rows and columns: 3 2
+Enter matrix elements:
+5 1
+2 7
+3 4
+Row 1 sum = 6
+Row 2 sum = 9
+Row 3 sum = 7
+Column 1 sum = 10
+Column 2 sum = 12
+Row with maximum sum = 2
+Maximum row sum = 9
+Column with maximum sum = 2
+Maximum column sum = 12
+
+Step 01: In main, read the row and column counts; stop if either is outside 1 to 10.
+Step 02: Read every matrix element.
+Step 03: For each row, add its elements, display the row sum, and update the row with the greatest sum.
+Step 04: For each column, add its elements, display the column sum, and update the column with the greatest sum.
+Step 05: Display the 1-based row and sum with the greatest total, then the 1-based column and sum with the greatest total.
+Step 06: Return from main.
+
+
+Q16]
+
+Enter rows and columns: 2 2
+Enter matrix elements:
+1 2
+3 4
+Saddle point = 3
+Position = (2, 1)
+
+Enter rows and columns: 2 2
+Enter matrix elements:
+5 1
+2 0
+Saddle point = 1
+Position = (1, 2)
+
+Enter rows and columns: 2 2
+Enter matrix elements:
+1 3
+1 2
+Saddle point = 1
+Position = (1, 1)
+Saddle point = 1
+Position = (2, 1)
+
+Step 01: In main, read and validate matrix dimensions from 1 to 10, then read all matrix elements.
+Step 02: For each row, find its minimum value.
+Step 03: For each position holding that row minimum, scan its column; mark it as a saddle point if no column value is greater.
+Step 04: Display each saddle point and its 1-based position, and record that one was found.
+Step 05: If no saddle point was recorded, display that none was found; return from main.
+
+Q17]
+
+Enter a positive integer: 12345
+Sum of digits = 15
+Single digit result = 6
+
+Enter a positive integer: 999
+Sum of digits = 27
+Single digit result = 9
+
+Enter a positive integer: 7
+Sum of digits = 7
+Single digit result = 7
+
+Step 01: Define a recursive function that returns 0 for input 0; otherwise add the last digit to the function's result for the number without that digit.
+Step 02: In main, read a number and reject negative input.
+Step 03: Call the digit-sum function and display the sum.
+Step 04: While the sum has at least two digits, replace it with the digit sum again.
+Step 05: Display the resulting single digit and return from main.
+
+Q18]
+
+Enter number of elements: 5
+Enter elements:
+1 2 3 4 5
+Maximum = 5
+Minimum = 1
+Average = 3.00
+
+Enter number of elements: 4
+Enter elements:
+10 0 6 4
+Maximum = 10
+Minimum = 0
+Average = 5.00
+
+Enter number of elements: 3
+Enter elements:
+8 2 5
+Maximum = 8
+Minimum = 2
+Average = 5.00
+
+Step 01: Define a function that scans the array and returns its maximum, starting from the first element.
+Step 02: Define a function that scans the array and returns its minimum, also starting from the first element.
+Step 03: Define an average function that sums all elements and divides the sum by the count as a float.
+Step 04: In main, read and validate the array size, then read the array values.
+Step 05: Call the three functions and display the maximum, minimum, and average; return.
+
+Q19]
+
+Enter three numbers: 9 2 5
+Ascending order: 2 5 9
+
+Enter three numbers: 3 1 2
+Ascending order: 1 2 3
+
+Enter three numbers: 100 20 50
+Ascending order: 20 50 100
+
+Step 01: Define a swap function that exchanges two integers through their memory addresses using a temporary value.
+Step 02: In main, read three numbers.
+Step 03: Compare the first and second values and swap them if they are out of order.
+Step 04: Compare the first and third, then the second and third, swapping each pair when needed.
+Step 05: Display the three values in ascending order and return from main.
+
+Q20]
+
+Enter number of elements: 5
+Enter elements:
+1 2 3 4 5
+Sum = 15
+Maximum = 5
+Minimum = 1
+Average = 3.00
+
+Enter number of elements: 4
+Enter elements:
+10 2 8 4
+Sum = 24
+Maximum = 10
+Minimum = 2
+Average = 6.00
+
+Enter number of elements: 3
+Enter elements:
+7 7 1
+Sum = 15
+Maximum = 7
+Minimum = 1
+Average = 5.00
+
+Step 01: In main, read and validate the array size, then read all array elements.
+Step 02: Set a pointer to the first array element and initialize the maximum and minimum from that value.
+Step 03: Traverse the array using pointer offsets; add each value to the sum and update the maximum and minimum.
+Step 04: Calculate the average by converting the sum to float before dividing by the element count.
+Step 05: Display the sum, maximum, minimum, and average, then return from main.
+
+
+Q21]
+
+Step 01: Define a reverse function that sets pointers to the beginning and end of the string.
+Step 02: Move the end pointer to the last character before the string terminator or newline.
+Step 03: Swap the characters at the two pointers and move them inward until they meet.
+Step 04: In main, read a line with fgets, call the reverse function, display the string, and return.
+
+Q22]
+
+Step 01: Define a function that converts uppercase letters to lowercase and leaves other characters unchanged.
+Step 02: Define a function that returns whether a character is an English letter or digit.
+Step 03: Define a palindrome function that finds the end of the string and compares characters from both ends.
+Step 04: Skip non-alphanumeric characters at each end and compare the remaining characters without regard to case.
+Step 05: Return false on a mismatch and true when all pairs match.
+Step 06: In main, read a sentence, call the palindrome function, display the result, and return.
+
+Q23]
+
+Step 01: Define a function that converts uppercase letters to lowercase.
+Step 02: Define a word-frequency function that scans the sentence, skipping spaces, newlines, and tabs between words.
+Step 03: Compare each word with the search word character by character without regard to case; reject matches with different lengths.
+Step 04: Count matching words, advance to the next word, and return the frequency.
+Step 05: In main, read the sentence and search word, call the function, display the frequency, and return.
+
+Q24]
+
+Step 01: In main, read a sentence and initialize the word count and longest and shortest lengths.
+Step 02: Scan through the sentence, skipping spaces, newlines, and tabs before each word.
+Step 03: Copy each word into a temporary buffer, keeping at most 99 characters, then count the word.
+Step 04: If it is the first word or longer than the current longest, save it as the longest word.
+Step 05: If it is the first word or shorter than the current shortest, save it as the shortest word.
+Step 06: Display the word count; when at least one word exists, display the longest and shortest words and their lengths.
+Step 07: Return from main.
+
+Q25]
+
+Step 01: Define a string-length function that counts characters until the null terminator.
+Step 02: Define a copy function that copies characters from the source through the null terminator.
+Step 03: Define a comparison function that scans equal characters and returns the difference between the first unequal characters.
+Step 04: Define a concatenation function that finds the destination's end and copies the source there.
+Step 05: In main, display a menu and read the user's choice.
+Step 06: For length, copy, compare, or concatenate, read the needed string or strings, call the matching function, and display its result.
+Step 07: Display Invalid choice for any other option, then return from main.
+
+
+Q26]
+
+Step 01: Define a comparison function that scans two names until characters differ or either string ends, then returns their character difference.
+Step 02: Define a swap function that exchanges two name strings character by character using a temporary buffer.
+Step 03: In main, read and validate the number of names, then read each name.
+Step 04: Use nested loops to compare neighboring names and swap them when they are out of alphabetical order.
+Step 05: Display the sorted names and return from main.
+
+Q27]
+
+Enter number of elements: 5
+Enter elements:
+5 1 4 2 3
+Sorted array: 1 2 3 4 5
+
+Enter number of elements: 4
+Enter elements:
+9 0 6 2
+Sorted array: 0 2 6 9
+
+Enter number of elements: 1
+Enter elements:
+42
+Sorted array: 42
+
+Step 01: Define a sorting function that receives the array through a pointer.
+Step 02: Use nested loops to compare neighboring values by pointer offset and swap them when the first is greater.
+Step 03: In main, read and validate the array size, then read its values.
+Step 04: Call the sorting function, display the sorted array, and return.
+
+Q28]
+
+Enter number of elements: 5
+Enter elements:
+4 2 8 1 5
+Maximum = 8
+Minimum = 1
+Sum = 20
+Average = 4.00
+
+Enter number of elements: 4
+Enter elements:
+3 0 6 9
+Maximum = 9
+Minimum = 0
+Sum = 18
+Average = 4.50
+
+Enter number of elements: 3
+Enter elements:
+10 10 10
+Maximum = 10
+Minimum = 10
+Sum = 30
+Average = 10.00
+
+Step 01: Define an analysis function that receives the array and addresses for maximum, minimum, sum, and average results.
+Step 02: Initialize maximum and minimum from the first element and initialize the sum to zero.
+Step 03: Scan the array, accumulating the sum and updating the maximum and minimum as needed.
+Step 04: Calculate the average as a floating-point sum divided by the element count.
+Step 05: In main, read and validate the array size, read its values, and call the analysis function with result addresses.
+Step 06: Display the maximum, minimum, sum, and average, then return from main.
+
+Q29]
+
+Enter order of matrix: 2
+Enter matrix elements:
+1 2
+3 4
+Main diagonal sum = 5
+Secondary diagonal sum = 5
+Boundary sum = 10
+Above main diagonal sum = 2
+Below main diagonal sum = 3
+
+Enter order of matrix: 3
+Enter matrix elements:
+1 2 3
+4 5 6
+7 8 9
+Main diagonal sum = 15
+Secondary diagonal sum = 15
+Boundary sum = 40
+Above main diagonal sum = 11
+Below main diagonal sum = 19
+
+Enter order of matrix: 1
+Enter matrix elements:
+5
+Main diagonal sum = 5
+Secondary diagonal sum = 5
+Boundary sum = 5
+Above main diagonal sum = 0
+Below main diagonal sum = 0
+
+Step 01: In main, read and validate the order of the square matrix, then read all matrix elements.
+Step 02: Visit every matrix position using nested loops.
+Step 03: Add values where the row and column indexes match to the main-diagonal sum.
+Step 04: Add values where the indexes total one less than the matrix order to the secondary-diagonal sum.
+Step 05: Add values on the outer edge to the boundary sum, above the main diagonal to the above sum, and below it to the below sum.
+Step 06: Display all five sums and return from main.
+
+Q30]
+
+Enter number of students: 2
+Enter marks for student 1 (5 subjects): 90 80 70 60 50
+Enter marks for student 2 (5 subjects): 100 100 100 100 100
+
+Student Results:
+Student 1: Total = 350, Average = 70.00
+Student 2: Total = 500, Average = 100.00
+
+Overall topper: Student 2
+Topper total = 500
+Subject 1: Maximum = 100, Average = 95.00
+Subject 2: Maximum = 100, Average = 90.00
+Subject 3: Maximum = 100, Average = 85.00
+Subject 4: Maximum = 100, Average = 80.00
+Subject 5: Maximum = 100, Average = 75.00
+Students scoring 50 or more in all subjects = 2
+Students failing at least one subject = 0
+
+Enter number of students: 3
+Enter marks for student 1 (5 subjects): 50 50 50 50 50
+Enter marks for student 2 (5 subjects): 49 100 100 100 100
+Enter marks for student 3 (5 subjects): 70 60 80 90 100
+
+Student Results:
+Student 1: Total = 250, Average = 50.00
+Student 2: Total = 449, Average = 89.80
+Student 3: Total = 400, Average = 80.00
+
+Overall topper: Student 2
+Topper total = 449
+Subject 1: Maximum = 70, Average = 56.33
+Subject 2: Maximum = 100, Average = 70.00
+Subject 3: Maximum = 100, Average = 76.67
+Subject 4: Maximum = 100, Average = 80.00
+Subject 5: Maximum = 100, Average = 83.33
+Students scoring 50 or more in all subjects = 2
+Students failing at least one subject = 1
+
+Enter number of students: 1
+Enter marks for student 1 (5 subjects): 60 70 80 90 100
+
+Student Results:
+Student 1: Total = 400, Average = 80.00
+
+Overall topper: Student 1
+Topper total = 400
+Subject 1: Maximum = 60, Average = 60.00
+Subject 2: Maximum = 70, Average = 70.00
+Subject 3: Maximum = 80, Average = 80.00
+Subject 4: Maximum = 90, Average = 90.00
+Subject 5: Maximum = 100, Average = 100.00
+Students scoring 50 or more in all subjects = 1
+Students failing at least one subject = 0
+
+Step 01: Define a function that totals a student's marks and another that calculates the average by calling the total function.
+Step 02: Define a function that finds the index of the largest student total.
+Step 03: Define functions that find the maximum mark and average mark for a selected subject across all students.
+Step 04: In main, read and validate the student count, then read five marks per student and reject marks outside 0 to 100.
+Step 05: For each student, calculate and store the total and average.
+Step 06: Display every student's total and average, find the topper, and display the topper's number and total.
+Step 07: For each subject, display its maximum mark and average.
+Step 08: For each student, check whether every subject mark is at least 50; count students who pass all subjects and those who fail at least one.
+Step 09: Display both counts and return from main.

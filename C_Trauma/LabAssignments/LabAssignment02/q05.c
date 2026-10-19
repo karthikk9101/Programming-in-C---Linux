@@ -27,9 +27,10 @@ int minimum(int a[],int n){
 }
 
 //Sum
-int sum(int a[],int n){
+int summ(int a[],int n){
 
-    int sum,i;
+    int sum=0;
+    int i;
 
     for (i=0;i<n;i++){
 
@@ -42,7 +43,7 @@ int sum(int a[],int n){
 
 //Average
 float avg(int a[],int n){
-    float average = sum(a,n)/n;
+    float average = summ(a,n)/n;
     return average;
 }
 
@@ -84,7 +85,7 @@ int main(){
     //printing elements
     printf("Maximum value   : %d\n",max(a,n));
     printf("Minimum value   : %d\n",minimum(a,n));
-    printf("Sum             : %d\n",sum(a,n));
+    printf("Sum             : %d\n",summ(a,n));
     printf("Average         : %0.2f\n",avg(a,n));
     printf("Odd count       : %d\n",oddcount(a,n));
     printf("Even count      : %d\n",evencount(a,n));
